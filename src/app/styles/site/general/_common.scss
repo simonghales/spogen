@@ -1,0 +1,72 @@
+.content--centered {
+  width: 100%;
+  max-width: 920px;
+  margin-left: auto;
+  margin-right: auto;
+
+  &.smaller {
+    max-width: 620px;
+  }
+
+}
+
+.flex-centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.flex-centered-horizontal {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.thumbnail {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.page--default {
+  height: 100vh; // todo handle in js
+}
+
+.page--animated {
+
+  &.ng-enter {
+    animation: fadeIn .5s cubic-bezier(.825,0,.5,1);
+  }
+
+  &.ng-leave {
+    animation: fadeOut .5s cubic-bezier(.825,0,.5,1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
+}
+
+.page--animated-busy {
+
+  &.state--busy {
+    @include transition(all, .7s, cubic-bezier(.825,0,.5,1));
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    transform: translateY(-100%);
+
+  }
+
+}
+
+%flex-centre {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

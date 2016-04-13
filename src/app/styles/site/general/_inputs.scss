@@ -1,0 +1,29 @@
+%input {
+  @extend %font--heading;
+  background: none;
+  border: 0;
+  font-size: 1em;
+
+  &:focus {
+    outline: none;
+  }
+
+}
+
+.input {
+  @extend %input;
+}
+
+.input--major {
+  color: #{map_get($colours, default)};
+  font-size: 1.3em;
+  border-bottom: 2px solid transparentize(map_get($colours, default), 0.75);
+  display: block;
+  width: 100%;
+  padding: 4px;
+
+  &:focus {
+    border-color: #{map_get($colours, default)};
+  }
+
+}
