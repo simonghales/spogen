@@ -30,41 +30,6 @@
   background-position: center;
 }
 
-.page--default {
-  height: 100vh; // todo handle in js
-}
-
-.page--animated {
-
-  &.ng-enter {
-    animation: fadeIn .5s cubic-bezier(.825,0,.5,1);
-  }
-
-  &.ng-leave {
-    animation: fadeOut .5s cubic-bezier(.825,0,.5,1);
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-  }
-
-}
-
-.page--animated-busy {
-
-  &.state--busy {
-    @include transition(all, .7s, cubic-bezier(.825,0,.5,1));
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-
-    transform: translateY(-100%);
-
-  }
-
-}
-
 %flex-centre {
   display: flex;
   align-items: center;

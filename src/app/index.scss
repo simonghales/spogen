@@ -19,20 +19,12 @@
 @import "styles/site/general/general";
 @import "styles/site/general/typography";
 @import "styles/site/general/buttons";
-@import "styles/site/general/inputs";
 
 /* Components */
-@import "styles/site/components/intro";
-@import "styles/site/components/loading";
+@import "styles/site/components/workshop";
+@import "styles/site/components/box";
 @import "styles/site/components/playlist";
-
-@import "styles/site/components/results/results";
-@import "styles/site/components/results/results.header";
-@import "styles/site/components/results/results.legend";
-@import "styles/site/components/results/results.nav";
-@import "styles/site/components/results/results.svg";
-@import "styles/site/components/results/results.overlay";
-@import "styles/site/components/results/results.save";
+@import "styles/site/components/tracks";
 
 
 /* Do not remove the comments below. It's the markers used by gulp-inject to inject

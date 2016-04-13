@@ -1,0 +1,55 @@
+
+$general-padding: 40px;
+
+.workshop-top {
+  @extend .clearfix;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 160px;
+  padding: $general-padding;
+}
+
+  .workshop-side {
+    @extend .clearfix;
+    float: left;
+    width: 440px;
+    height: 100%;
+    margin-right: $general-padding;
+  }
+
+    .workshop-filters {
+      float: left;
+      width: 140px;
+      height: 100%;
+      margin-right: $general-padding;
+
+      .box {
+        margin-top: $general-padding;
+
+        &:first-of-type {
+          margin-top: 0;
+        }
+
+      }
+
+    }
+
+    .workshop-results {
+      float: left;
+    }
+
+  .workshop-main {
+    overflow: hidden;
+    height: 100%;
+  }
+
+.workshop-bottom {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 160px;
+  padding: 0 $general-padding $general-padding $general-padding;
+}

@@ -1,0 +1,31 @@
+.tracks {
+  margin-top: 15px;
+
+  > li {
+    margin-top: 5px;
+
+    &:first-of-type {
+      margin-top: 0;
+    }
+
+  }
+
+}
+
+  .track {
+    @include transition(border-color 100ms ease, transform 150ms ease);
+    @include border-radius(4px);
+    cursor: pointer;
+    padding: 10px;
+    border: 2px solid transparent;
+    border-bottom-width: 4px;
+
+    &:hover {
+      border-color: rgba(0,0,0,0.4);
+    }
+
+    &:active {
+      transform: scale(1.05);
+    }
+
+  }
