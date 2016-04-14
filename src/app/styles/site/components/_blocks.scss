@@ -1,18 +1,8 @@
-.tracks {
+.blocks {
   margin-top: 15px;
-
-  > li {
-    margin-top: 5px;
-
-    &:first-of-type {
-      margin-top: 0;
-    }
-
-  }
-
 }
 
-  .track {
+  .block {
     @extend .clearfix;
     @include transition(border-color 100ms ease, transform 350ms cubic-bezier(.71,2,.52,.48));
     @include border-radius(4px);
@@ -28,28 +18,28 @@
     &:active {
       transform: scale(1.05);
     }
-
   }
 
-    .track__thumb {
+    .block__thumb {
+      @include border-radius(50%);
       float: left;
       width: 42px;
       height: 42px;
-      background-color: rgba(0,0,0,0.15);
+      background-color: rgba(0,0,0,0.2);
       margin-right: 10px;
     }
 
-    .track__info {
+    .block__info {
       overflow: hidden;
     }
 
-      .track__title {
-        font-size: .9em;
+      .block__title {
+        font-size: .8em;
         font-weight: 700;
-        margin: 4px 0 3px 0;
+        margin: 6px 0 3px 0;
       }
 
-      .track__subtitle {
-        color: #9DA9F7;
-        font-size: .85em;
+      .block__subtitle {
+        font-size: .7em;
+        font-weight: 500;
       }

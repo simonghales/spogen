@@ -1,3 +1,6 @@
 body {
   background-color: #{map_get($colours, background)};
+  background-image: url(/assets/images/background/background.jpg);
+  background-size: cover;
+  background-attachment: fixed;
 }

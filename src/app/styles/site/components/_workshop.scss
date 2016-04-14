@@ -17,10 +17,11 @@ $general-padding: 40px;
     width: 440px;
     height: 100%;
     margin-right: $general-padding;
+    display: flex;
   }
 
     .workshop-filters {
-      float: left;
+      flex-grow: 1;
       width: 140px;
       height: 100%;
       margin-right: $general-padding;
@@ -37,7 +38,7 @@ $general-padding: 40px;
     }
 
     .workshop-results {
-      float: left;
+      flex-grow: 1;
     }
 
   .workshop-main {

@@ -17,7 +17,7 @@
 }
 
 .btn--major {
-  @include transition(transform 300ms ease);
+  @include transition(color 100ms ease, background 100ms ease, transform 300ms ease);
   @include border-radius(8px);
   //border: 2px solid #FF002D;
   border: 2px solid #ffffff;
