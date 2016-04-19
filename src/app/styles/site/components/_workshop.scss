@@ -9,11 +9,12 @@ $general-padding: 40px;
   right: 0;
   bottom: 160px;
   padding: $general-padding;
+  display: flex;
 }
 
   .workshop-side {
     @extend .clearfix;
-    float: left;
+    flex: 0 0 440px;
     width: 440px;
     height: 100%;
     margin-right: $general-padding;
@@ -21,8 +22,7 @@ $general-padding: 40px;
   }
 
     .workshop-filters {
-      flex-grow: 1;
-      width: 140px;
+      flex: 0 0 180px;
       height: 100%;
       margin-right: $general-padding;
 
@@ -42,7 +42,7 @@ $general-padding: 40px;
     }
 
   .workshop-main {
-    overflow: hidden;
+    flex-grow: 1;
     height: 100%;
   }
 

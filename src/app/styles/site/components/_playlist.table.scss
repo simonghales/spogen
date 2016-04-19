@@ -1,0 +1,52 @@
+.playlist__table {
+  width: 100%;
+  border-collapse: collapse;
+  //table-layout: fixed;
+  margin-top: 15px;
+
+  th {
+    color: #dddddd;
+    text-align: left;
+    padding: 10px 5px;
+  }
+
+  th,
+  td {
+
+    &.right {
+      text-align: right;
+      white-space: nowrap
+    }
+
+  }
+
+  tbody {
+
+    tr {
+      border-top: 1px solid #f4f4f4;
+    }
+
+    td {
+      color: #555555;
+      padding: 10px 5px;
+    }
+
+  }
+
+  tr {
+
+    &:hover {
+
+      .btn--delete {
+        opacity: 1;
+      }
+
+    }
+
+    .btn--delete {
+      opacity: 0;
+    }
+
+  }
+
+}

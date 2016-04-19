@@ -8,3 +8,44 @@
   }
 
 }
+
+  .playlist__header {
+    display: flex;
+
+    .input-wrapper {
+      flex-grow: 1;
+    }
+
+  }
+
+    .playlist__info {
+      color: #d0d0d0;
+      font-size: .8em;
+      margin-left: 20px;
+      padding: 10px 10px 0 0;
+      text-align: right;
+    }
+
+  .input--title {
+    background: none;
+    border: 0;
+    border-bottom: 3px solid #f0f0f0;
+    font-size: 1.5em;
+    padding: 0 0 3px 0;
+    width: 100%;
+
+    @include placeholder {
+      color: #d0d0d0;
+    }
+
+    &:focus {
+      border-color: #d0d0d0;
+      outline: none;
+
+      @include placeholder {
+        color: #b0b0b0;
+      }
+
+    }
+
+  }

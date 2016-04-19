@@ -2,57 +2,33 @@
   <section class="workshop-top">
     <section class="workshop-side">
       <section class="workshop-filters">
-        <div class="box box--slimmer">
+        <div class="box">
           <h3 class="box__title">Seeds</h3>
+          <input type="text" placeholder="search for a seed"/>
+          <!--
+
+            Opens up a drop-down, searching for song, artist, and genre simultaneously
+
+          -->
           <ul class="blocks">
             <li>
-              <div class="block">
-                <div class="block__thumb"></div>
-                <div class="block__info">
-                  <div class="block__title">Title</div>
-                  <div class="block__subtitle">Subtitle</div>
-                </div>
-              </div>
+              <seed></seed>
             </li>
             <li>
-              <div class="block">
-                <div class="block__thumb"></div>
-                <div class="block__info">
-                  <div class="block__title">Title</div>
-                  <div class="block__subtitle">Subtitle</div>
-                </div>
-              </div>
+              <seed></seed>
             </li>
             <li>
-              <div class="block">
-                <div class="block__thumb"></div>
-                <div class="block__info">
-                  <div class="block__title">Title</div>
-                  <div class="block__subtitle">Subtitle</div>
-                </div>
-              </div>
+              <seed></seed>
             </li>
             <li>
-              <div class="block">
-                <div class="block__thumb"></div>
-                <div class="block__info">
-                  <div class="block__title">Title</div>
-                  <div class="block__subtitle">Subtitle</div>
-                </div>
-              </div>
+              <seed></seed>
             </li>
             <li>
-              <div class="block">
-                <div class="block__thumb"></div>
-                <div class="block__info">
-                  <div class="block__title">Title</div>
-                  <div class="block__subtitle">Subtitle</div>
-                </div>
-              </div>
+              <seed></seed>
             </li>
           </ul>
         </div>
-        <div class="box box--slimmer">
+        <div class="box">
           <h3 class="box__title">Attributes</h3>
         </div>
       </section>
@@ -120,7 +96,60 @@
     </section>
     <section class="workshop-main">
       <div class="playlist box full">
-        <h3 class="box__title">Playlist</h3>
+        <header class="playlist__header">
+          <div class="input-wrapper">
+            <input type="text" class="playlist__title input input--title" placeholder="enter a playlist title..."/>
+          </div>
+          <h4 class="playlist__info">124 songs, 7 hr 21 min</h4>
+        </header>
+        <section>
+          <table class="playlist__table">
+            <thead>
+              <tr>
+                <th>SONG</th>
+                <th>ARTIST</th>
+                <th>ALBUM</th>
+                <th class="right">TIME</th>
+                <th>   </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Song Name</td>
+                <td>Artist Name</td>
+                <td>Album Title</td>
+                <td class="right">3:44</td>
+                <td>
+                  <button class="btn btn--delete">
+                    <span class="icon icon-cancel"></span>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>Song Name and this one too</td>
+                <td>Artist Name that's also quite long and stretches really longggggggggg</td>
+                <td>Album Title that's quite long and stretches quite farrrrr</td>
+                <td class="right">3:44</td>
+                <td>
+                  <button class="btn btn--delete">
+                    <span class="icon icon-cancel"></span>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>Song Name</td>
+                <td>Artist Name</td>
+                <td>Album Title</td>
+                <td class="right">3:44</td>
+                <td>
+                  <button class="btn btn--delete">
+                    <span class="icon icon-cancel"></span>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
         <button class="btn btn--major">Save Playlist</button>
       </div>
     </section>

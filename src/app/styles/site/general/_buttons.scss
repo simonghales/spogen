@@ -37,4 +37,23 @@
 
 }
 
+.btn--delete {
+  @include transition(transform 200ms ease);
+  color: #cccccc;
 
+  &:hover {
+    color: #555555;
+  }
+
+  &:active {
+    transform: scale(1.1);
+  }
+
+}
+
+.btn--remove {
+  @extend .btn--delete;
+  display: block;
+  width: 24px;
+  height: 24px;
+}

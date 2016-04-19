@@ -1,23 +1,37 @@
 .blocks {
   margin-top: 15px;
+
+  > li {
+    margin-top: 10px;
+
+    &:first-of-type {
+      margin-top: 0;
+    }
+
+  }
+
 }
 
   .block {
     @extend .clearfix;
-    @include transition(border-color 100ms ease, transform 350ms cubic-bezier(.71,2,.52,.48));
-    @include border-radius(4px);
-    cursor: pointer;
-    padding: 10px;
-    border: 2px solid transparent;
-    border-bottom-width: 4px;
+    cursor: default;
+    position: relative;
 
     &:hover {
-      border-color: rgba(0,0,0,0.4);
+
+      .remove-button {
+        visibility: visible;
+      }
+
     }
 
-    &:active {
-      transform: scale(1.05);
+    .remove-button {
+      visibility: hidden;
+      position: absolute;
+      top: 8px;
+      right: 2px;
     }
+
   }
 
     .block__thumb {
@@ -26,7 +40,7 @@
       width: 42px;
       height: 42px;
       background-color: rgba(0,0,0,0.2);
-      margin-right: 10px;
+      margin-right: 8px;
     }
 
     .block__info {
@@ -34,12 +48,15 @@
     }
 
       .block__title {
-        font-size: .8em;
-        font-weight: 700;
-        margin: 6px 0 3px 0;
+        color: #555555;
+        font-size: .9em;
+        font-weight: 500;
+        margin: 7px 0 3px 0;
       }
 
       .block__subtitle {
+        color: #777777;
         font-size: .7em;
         font-weight: 500;
       }
+
