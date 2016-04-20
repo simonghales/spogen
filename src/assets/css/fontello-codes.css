@@ -2,3 +2,8 @@
 .icon-cancel:before { content: '\21'; } /* '!' */
 .icon-pencil:before { content: '\22'; } /* '&quot;' */
 .icon-ok:before { content: '\23'; } /* '#' */
+.icon-search:before { content: '\24'; } /* '$' */
+.icon-clock:before { content: '\25'; } /* '%' */
+.icon-music:before { content: '\26'; } /* '&amp;' */
+.icon-headphones:before { content: '\27'; } /* ''' */
+.icon-brush:before { content: '\28'; } /* '(' */

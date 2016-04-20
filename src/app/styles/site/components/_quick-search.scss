@@ -1,0 +1,25 @@
+.quick-search {
+  position: relative;
+
+  .input-wrapper {
+    position: relative;
+
+    .icon {
+      color: #555555;
+      position: absolute;
+      top: 19px;
+      left: 15px;
+      pointer-events: none;
+    }
+
+  }
+
+  .dropdown {
+    position: absolute;
+    left: -15px;
+    right: -15px;
+    top: 100%;
+    margin-top: 5px;
+  }
+
+}

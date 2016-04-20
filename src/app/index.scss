@@ -19,6 +19,7 @@
 @import "styles/site/general/general";
 @import "styles/site/general/typography";
 @import "styles/site/general/buttons";
+@import "styles/site/general/form";
 
 /* Components */
 @import "styles/site/components/workshop";
@@ -27,6 +28,9 @@
 @import "styles/site/components/playlist.table";
 @import "styles/site/components/tracks";
 @import "styles/site/components/blocks";
+@import "styles/site/components/quick-search";
+@import "styles/site/components/dropdown";
+@import "styles/site/components/results";
 
 
 /* Do not remove the comments below. It's the markers used by gulp-inject to inject

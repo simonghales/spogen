@@ -1,0 +1,17 @@
+<div class="quick-search">
+  <div class="input-wrapper">
+    <input class="input input--search dropdown-search" type="text" placeholder="search for a track, artist, or genre"
+           ng-model="quickSearchVM.models.search"
+           ng-focus="quickSearchVM.considerShowingDropdown();"
+           ng-change="quickSearchVM.considerShowingDropdown();"
+      />
+    <div class="icon icon-search"></div>
+  </div>
+  <dropdown
+    class="ng-hide"
+    ng-show="quickSearchVM.states.dropdownVisible"
+    off-click="quickSearchVM.hideDropdown();"
+    off-click-filter="'.dropdown-search'"
+    off-click-if="quickSearchVM.states.dropdownVisible"
+    ></dropdown> <!-- added ng-hide due to initial flicker -->
+</div>

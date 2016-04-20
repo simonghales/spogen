@@ -2,6 +2,14 @@
   'use strict';
 
   angular
-    .module('spogen', ['ngAnimate', 'ngCookies', 'ui.router', 'toastr']);
+    .module('spogen', [
+
+      'offClick',
+
+      'ngAnimate',
+      'ngCookies',
+      'ui.router',
+      'toastr'
+    ]);
 
 })();

@@ -18,8 +18,13 @@ $general-padding: 40px;
     width: 440px;
     height: 100%;
     margin-right: $general-padding;
-    display: flex;
   }
+
+    .workshop-side__halves {
+      display: flex;
+      width: 100%;
+      margin-top: $general-padding;
+    }
 
     .workshop-filters {
       flex: 0 0 180px;

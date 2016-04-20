@@ -1,0 +1,59 @@
+.dropdown {
+  @include border-radius(3px);
+  @include box-shadow-multiple(0 0 1px rgba(0,0,0,0.1), 0 0 10px rgba(0,0,0,0.05));
+  background-color: #ffffff;
+  //padding: 15px;
+  z-index: 100;
+  padding-bottom: 10px;
+
+  &.ng-hide-remove {
+    animation: slideInLeft 250ms ease;
+  }
+
+  &.ng-hide-add {
+    animation: slideOutLeft 250ms ease;
+  }
+
+}
+
+  .dropdown__section {
+    position: relative;
+
+    .message {
+      color: #cccccc;
+      padding: 5px 15px;
+      font-style: italic;
+      font-size: .9em;
+      position: absolute;
+      pointer-events: none;
+      right: 0;
+    }
+
+  }
+
+    .dropdown__section__header {
+      padding: 15px 15px 5px 15px;
+    }
+
+    .dropdown__section__title {
+      @extend .heading--small;
+    }
+
+    .dropdown__section__list {
+
+      > li {
+        @include transition(all 100ms ease);
+        cursor: pointer;
+        padding: 5px 15px;
+
+        &:hover {
+          background-color: #f9f9f9;
+        }
+
+        &:active {
+          background-color: #f2f2f2;
+        }
+
+      }
+
+    }
