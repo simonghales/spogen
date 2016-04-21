@@ -57,3 +57,22 @@
   width: 24px;
   height: 24px;
 }
+
+.btn--connect {
+  @extend %font--heading;
+  @include border-radius(35px);
+  @include transition(transform 300ms ease);
+  border: 2px solid #333333;
+  font-size: 1.1em;
+  padding: 10px 40px;
+
+  &:hover {
+    background-color: #333333;
+    color: #ffffff;
+  }
+
+  &:active {
+    transform: translateY(2px);
+  }
+
+}

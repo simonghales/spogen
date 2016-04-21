@@ -2,6 +2,7 @@
   <div class="input-wrapper">
     <input class="input input--search dropdown-search" type="text" placeholder="search for a track, artist, or genre"
            ng-model="quickSearchVM.models.search"
+           ng-model-options="{ debounce: 300 }"
            ng-focus="quickSearchVM.considerShowingDropdown();"
            ng-change="quickSearchVM.considerShowingDropdown();"
       />

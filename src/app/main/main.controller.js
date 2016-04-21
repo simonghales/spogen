@@ -8,6 +8,5 @@
   /** @ngInject */
   function MainController($log) {
     var vm = this;
-
   }
 })();

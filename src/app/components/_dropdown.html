@@ -1,109 +1,76 @@
 <div class="dropdown">
-  <section class="dropdown__section"
+  <section class="dropdown__section dropdown__section--tracks"
            ng-class="{
               'state--loading': quickSearchVM.states.searching.tracks
             }">
     <header class="dropdown__section__header">
       <h4 class="dropdown__section__title">Tracks</h4>
+      <div class="message searching-message show--loading m--visibility m--inline">
+        searching...
+      </div>
     </header>
-    <div class="message show--loading m--visibility">
-      searching...
+    <div class="message padded"
+      ng-show="!quickSearchVM.states.searching.tracks && quickSearchVM.data.tracks.items.length === 0" >
+      no results found
     </div>
     <ul class="dropdown__section__list">
-      <li>
-        <div class="result result--track">
-          <div class="result__title">Song Title</div>
-          <div class="result__subtitle">Subtitle</div>
-        </div>
-      </li>
-      <li>
-        <div class="result result--track">
-          <div class="result__title">Song Title</div>
-          <div class="result__subtitle">Subtitle</div>
-        </div>
-      </li>
-      <li>
-        <div class="result result--track">
-          <div class="result__title">Song Title</div>
-          <div class="result__subtitle">Subtitle</div>
-        </div>
-      </li>
-      <li>
-        <div class="result result--track">
-          <div class="result__title">Song Title</div>
-          <div class="result__subtitle">Subtitle</div>
+      <li
+        class="repeat-modify"
+        ng-repeat="item in quickSearchVM.data.tracks.items | limitTo : 4 track by item.id">
+        <div class="result result--track"
+             ng-click="quickSearchVM.addTrackSeed(item)">
+          <div class="result__title"
+               ng-bind="::item.name"></div>
+          <div class="result__subtitle"
+               ng-bind="::item.artists | artists"></div>
         </div>
       </li>
     </ul>
   </section>
-  <section class="dropdown__section"
+  <section class="dropdown__section dropdown__section--artists"
             ng-class="{
               'state--loading': quickSearchVM.states.searching.artists
             }">
     <header class="dropdown__section__header">
       <h4 class="dropdown__section__title">Artists</h4>
+      <div class="message searching-message show--loading m--visibility m--inline">
+        searching...
+      </div>
     </header>
-    <div class="message show--loading m--visibility">
-      searching...
+    <div class="message padded"
+         ng-show="!quickSearchVM.states.searching.artists && quickSearchVM.data.artists.items.length === 0" >
+      no results found
     </div>
     <ul class="dropdown__section__list">
-      <li>
-        <div class="result result--artist">
-          <div class="result__thumb"></div>
+      <li
+        class="repeat-modify"
+        ng-repeat="item in quickSearchVM.data.artists.items | limitTo : 4 track by item.id">
+        <div class="result result--artist"
+             ng-click="quickSearchVM.addArtistSeed(item)">
+          <div class="result__thumb"
+               back-img="{{::item.images[0].url}}"></div>
           <div class="result__info">
-            <div class="result__title">Artist Name</div>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="result result--artist">
-          <div class="result__thumb"></div>
-          <div class="result__info">
-            <div class="result__title">Artist Name</div>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="result result--artist">
-          <div class="result__thumb"></div>
-          <div class="result__info">
-            <div class="result__title">Artist Name</div>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="result result--artist">
-          <div class="result__thumb"></div>
-          <div class="result__info">
-            <div class="result__title">Artist Name</div>
+            <div class="result__title"
+                 ng-bind="::item.name"></div>
           </div>
         </div>
       </li>
     </ul>
   </section>
-  <section class="dropdown__section">
+  <section class="dropdown__section genres">
     <header class="dropdown__section__header">
       <h4 class="dropdown__section__title">Genres</h4>
     </header>
+    <div class="message padded"
+         ng-show="filteredGenres.length === 0" >
+      no results found
+    </div>
     <ul class="dropdown__section__list">
-      <li>
-        <div class="result result--genre">
-          <div class="result__title">Genre Name</div>
-        </div>
-      </li>
-      <li>
-        <div class="result result--genre">
-          <div class="result__title">Genre Name</div>
-        </div>
-      </li>
-      <li>
-        <div class="result result--genre">
-          <div class="result__title">Genre Name</div>
-        </div>
-      </li>
-      <li>
-        <div class="result result--genre">
-          <div class="result__title">Genre Name</div>
+      <li ng-repeat="item in filteredGenres = (quickSearchVM.data.genres| filter:quickSearchVM.models.search | limitTo : 4)">
+        <div class="result result--genre"
+             ng-click="quickSearchVM.addGenreSeed(item)">
+          <div class="result__title"
+               ng-bind="::item"></div>
         </div>
       </li>
     </ul>

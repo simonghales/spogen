@@ -6,9 +6,23 @@
     .run(runBlock);
 
   /** @ngInject */
-  function runBlock($log) {
+  function runBlock($log, $rootScope, AuthenticationService) {
 
-    $log.debug('runBlock end');
+    $rootScope.states = {
+      authenticated: false
+    };
+
+    _checkAuth();
+
+    function _checkAuth() {
+
+      if(AuthenticationService.isAuth()) {
+        var token = AuthenticationService.getAuth();
+        AuthenticationService.setAuth(token);
+      }
+
+    }
+
   }
 
 })();

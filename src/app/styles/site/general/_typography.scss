@@ -1,6 +1,6 @@
 
 %font--heading {
-  font-family: 'Roboto', Helvetica, Arial, sans-serif;
+  font-family: 'Lato', Helvetica, Arial, sans-serif;
 }
 
 %font--default {
@@ -18,6 +18,12 @@ body {
 }
 
 strong {
+  font-weight: 700;
+}
+
+.heading--main {
+  color: #333333;
+  font-size: 2.85em;
   font-weight: 700;
 }
 

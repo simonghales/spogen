@@ -21,6 +21,10 @@ $states-list: touch ready incomplete disconnected connected whiteLabel buffering
     visibility: hidden;
   }
 
+  &.m--visibility.m--inline {
+      display: inline-block;
+  }
+
 }
 
 %state-active {
@@ -37,6 +41,10 @@ $states-list: touch ready incomplete disconnected connected whiteLabel buffering
   &.m--visibility {
     display: block;
     visibility: visible;
+  }
+
+  &.m--visibility.m--inline {
+    display: inline-block;
   }
 
 }
@@ -57,6 +65,15 @@ $states-list: touch ready incomplete disconnected connected whiteLabel buffering
   &.m--visibility {
     display: block;
     visibility: hidden;
+
+    &.m--inline {
+      display: inline-block;
+    }
+
+  }
+
+  &.m--visibility.m--inline {
+    display: inline-block;
   }
 
 }

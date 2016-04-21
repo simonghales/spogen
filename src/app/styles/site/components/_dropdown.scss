@@ -19,20 +19,27 @@
   .dropdown__section {
     position: relative;
 
-    .message {
-      color: #cccccc;
-      padding: 5px 15px;
-      font-style: italic;
-      font-size: .9em;
-      position: absolute;
-      pointer-events: none;
-      right: 0;
+    &.dropdown__section--tracks {
+      min-height: 204px; // not dynamic...
+    }
+
+    &.dropdown__section--artists {
+      min-height: 244px; // not dynamic...
+    }
+
+    &.dropdown__section--genres {
+      min-height: 162px; // not dynamic...
     }
 
   }
 
     .dropdown__section__header {
       padding: 15px 15px 5px 15px;
+
+      .searching-message {
+        display: inline-block;
+      }
+
     }
 
     .dropdown__section__title {
@@ -42,18 +49,20 @@
     .dropdown__section__list {
 
       > li {
-        @include transition(all 100ms ease);
-        cursor: pointer;
-        padding: 5px 15px;
-
-        &:hover {
-          background-color: #f9f9f9;
-        }
-
-        &:active {
-          background-color: #f2f2f2;
-        }
 
       }
 
     }
+
+.message {
+  color: #cccccc;
+  padding: 5px 5px;
+  font-style: italic;
+  font-size: .85em;
+  pointer-events: none;
+
+  &.padded {
+    padding: 5px 15px;
+  }
+
+}
