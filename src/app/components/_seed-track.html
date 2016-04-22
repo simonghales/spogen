@@ -1,0 +1,17 @@
+<div class="block block--track">
+  <div class="block__thumb">
+    <span class="icon icon-music"></span>
+  </div>
+  <div class="block__info">
+    <div class="block__title">
+      <span
+        ng-bind="::seed.name"></span>
+      <span class="subtitle"
+        ng-bind="::seed.info.artists | artists"></span>
+    </div>
+    <div class="block__subtitle">track</div>
+  </div>
+  <button class="remove-button btn btn--remove">
+    <span class="icon icon-cancel"></span>
+  </button>
+</div>

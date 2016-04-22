@@ -28,7 +28,7 @@
     .remove-button {
       visibility: hidden;
       position: absolute;
-      top: 8px;
+      top: 1px;
       right: 2px;
     }
 
@@ -37,26 +37,39 @@
     .block__thumb {
       @include border-radius(50%);
       float: left;
-      width: 42px;
-      height: 42px;
+      width: 24px;
+      height: 24px;
       background-color: rgba(0,0,0,0.2);
-      margin-right: 8px;
+      margin-right: 6px;
+      position: relative;
+      top: 2px;
     }
 
     .block__info {
       overflow: hidden;
+      padding-right: 25px;
     }
 
       .block__title {
+        @include text-truncate();
         color: #555555;
-        font-size: .9em;
+        font-size: .85em;
         font-weight: 500;
-        margin: 7px 0 3px 0;
+        margin: 0 0 3px 0;
+
+        .subtitle {
+          color: #aaaaaa;
+          font-weight: 300;
+          font-size: .9em;
+        }
+
       }
 
       .block__subtitle {
-        color: #777777;
+        color: #aaaaaa;
         font-size: .7em;
         font-weight: 500;
+        font-style: italic;
+        padding-bottom: 2px;
       }
 

@@ -14,8 +14,7 @@ $general-padding: 40px;
 
   .workshop-side {
     @extend .clearfix;
-    flex: 0 0 440px;
-    width: 440px;
+    flex: 0 0 540px;
     height: 100%;
     margin-right: $general-padding;
   }
@@ -27,9 +26,10 @@ $general-padding: 40px;
     }
 
     .workshop-filters {
-      flex: 0 0 180px;
+      flex: 0 0 240px;
       height: 100%;
       margin-right: $general-padding;
+      width: 240px;
 
       .box {
         margin-top: $general-padding;
