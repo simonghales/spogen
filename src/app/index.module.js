@@ -7,6 +7,7 @@
       'spogen.authentication',
       'spogen.general',
       'spogen.seeds',
+      'spogen.attributes',
       'spogen.spotify',
 
       'offClick',
@@ -59,6 +60,20 @@
   angular.module('spogen.seeds.directives', []);
 
   angular.module('spogen.seeds.services', []);
+
+  //
+
+  angular.module('spogen.attributes', [
+    'spogen.attributes.controllers',
+    'spogen.attributes.directives',
+    'spogen.attributes.services'
+  ]);
+
+  angular.module('spogen.attributes.controllers', []);
+
+  angular.module('spogen.attributes.directives', []);
+
+  angular.module('spogen.attributes.services', []);
 
   //
 

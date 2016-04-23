@@ -32,7 +32,7 @@ $general-padding: 40px;
       width: 240px;
 
       .box {
-        margin-top: $general-padding;
+        margin-top: $general-padding / 2;
 
         &:first-of-type {
           margin-top: 0;

@@ -16,7 +16,8 @@
       addGenreSeed: addGenreSeed,
       addSeed: addSeed,
       addTrackSeed: addTrackSeed,
-      getSeeds: getSeeds
+      getSeeds: getSeeds,
+      removeSeed: removeSeed
     };
 
     return service;
@@ -66,6 +67,17 @@
 
     function getSeeds() {
       return _seeds;
+    }
+
+    function removeSeed(id) {
+
+      for (var i = 0; i < _seeds.length; i++) {
+        if(_seeds[i].id === id) {
+          _seeds.splice(i, 1);
+          break;
+        }
+      }
+
     }
 
   }

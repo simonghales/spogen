@@ -39,10 +39,33 @@
       float: left;
       width: 24px;
       height: 24px;
+      color: #ffffff;
       background-color: rgba(0,0,0,0.2);
       margin-right: 6px;
       position: relative;
       top: 2px;
+      text-align: center;
+      line-height: 24px;
+
+      .icon {
+        font-size: .7em;
+        position: relative;
+        top: -2px;
+        text-shadow: 0 1px rgba(0,0,0,0.25);
+      }
+
+      .block--artist & {
+        background-color: #007BFF;
+      }
+
+      .block--genre & {
+        background-color: #C500B5;
+      }
+
+      .block--track & {
+        background-color: #FF002D;
+      }
+
     }
 
     .block__info {
@@ -61,6 +84,15 @@
           color: #aaaaaa;
           font-weight: 300;
           font-size: .9em;
+        }
+
+        .block--track & {
+          color: #aaaaaa;
+
+          .text--track {
+            color: #555555;
+          }
+
         }
 
       }

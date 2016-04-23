@@ -38,3 +38,11 @@ strong {
   //text-shadow: 0 1px rgba(0,0,0,0.05), 0 2px 10px rgba(0,0,0,0.05);
   text-transform: uppercase;
 }
+
+.small-message {
+  color: #{map_get($colours, faint)};
+  font-size: .8em;
+  padding: 5px;
+  line-height: 1.2em;
+  font-style: italic;
+}

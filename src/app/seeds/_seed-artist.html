@@ -7,7 +7,8 @@
          ng-bind="::seed.name"></div>
     <div class="block__subtitle">artist</div>
   </div>
-  <button class="remove-button btn btn--remove">
+  <button class="remove-button btn btn--remove"
+          ng-click="seedVM.removeSeed()">
     <span class="icon icon-cancel"></span>
   </button>
 </div>
