@@ -1,0 +1,30 @@
+.suggestions {
+  @extend .clearfix;
+  padding-top: 2px;
+
+  > li {
+    float: left;
+    margin-right: 20px;
+  }
+
+  .block-wrapper {
+    @include border-radius(2px);
+    @include transition(transform 350ms cubic-bezier(.71,2,.52,.48));
+    cursor: pointer;
+    padding: 10px;
+
+    &:hover {
+      @include box-shadow-multiple(0 0 1px rgba(0,0,0,0.1), 0 0 10px rgba(0,0,0,0.05));
+    }
+
+    &:active {
+      transform: scale(1.05);
+    }
+
+    .block {
+      cursor: inherit;
+    }
+
+  }
+
+}
