@@ -1,0 +1,22 @@
+<div class="box full">
+  <h3 class="box__title">Suggestions</h3>
+  <ul class="suggestions">
+    <li ng-repeat="seed in suggestionsVM.suggestions">
+      <div class="block-wrapper draggable--seed"
+           jqyoui-draggable="suggestionsVM.drag"
+           data-drag="true"
+           data-jqyoui-options="suggestionsVM.dragOptions"
+           ng-model="seed">
+        <div class="block block--genre">
+          <div class="block__thumb">
+            <span class="icon icon-headphones"></span>
+          </div>
+          <div class="block__info">
+            <div class="block__title">Seed Name</div>
+            <div class="block__subtitle">genre</div>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

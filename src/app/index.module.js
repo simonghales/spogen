@@ -8,10 +8,12 @@
       'spogen.general',
       'spogen.seeds',
       'spogen.attributes',
+      'spogen.suggestions',
       'spogen.spotify',
 
       'offClick',
       'spotify',
+      'ngDragDrop',
 
       'ngAnimate',
       'ngCookies',
@@ -74,6 +76,20 @@
   angular.module('spogen.attributes.directives', []);
 
   angular.module('spogen.attributes.services', []);
+
+  //
+
+  angular.module('spogen.suggestions', [
+    'spogen.suggestions.controllers',
+    'spogen.suggestions.directives',
+    'spogen.suggestions.services'
+  ]);
+
+  angular.module('spogen.suggestions.controllers', []);
+
+  angular.module('spogen.suggestions.directives', []);
+
+  angular.module('spogen.suggestions.services', []);
 
   //
 

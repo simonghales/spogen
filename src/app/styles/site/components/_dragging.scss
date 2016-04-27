@@ -1,0 +1,58 @@
+.dragging-fade {
+  @include transition(opacity 250ms ease);
+
+  .state--dragging & {
+    opacity: 0.35;
+  }
+
+}
+
+.droppable-box {
+  @include transition(transform 250ms ease);
+  position: relative;
+
+  &.state--receivable {
+
+    .drop-message {
+      animation: flipInY 500ms ease;
+      animation-fill-mode: forwards;
+      visibility: visible;
+    }
+
+  }
+
+  &.state--hovering {
+    transform: scale(1.05);
+
+    //.drop-message {
+    //  animation: flipOutY 500ms ease;
+    //  animation-fill-mode: forwards;
+    //  visibility: visible;
+    //}
+
+  }
+
+}
+
+.drop-message {
+  visibility: hidden;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+  pointer-events: none;
+
+  .text {
+    @include border-radius(20px);
+    display: inline-block;
+    background-color: #FF0073;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: .8em;
+    font-weight: 700;
+    padding: 10px 15px;
+    transform: translateY(50%);
+  }
+
+}

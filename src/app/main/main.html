@@ -1,4 +1,8 @@
-<section class="page page--default">
+<section class="page page--default"
+         drag-classes=""
+         ng-class="{
+          'state--dragging': states.dragging
+         }">
   <section class="workshop-top">
     <section class="workshop-side">
       <quick-search></quick-search>
@@ -7,7 +11,7 @@
           <seeds></seeds>
           <attributes></attributes>
         </section>
-        <section class="workshop-results">
+        <section class="workshop-results dragging-fade">
           <div class="flat-box">
             <h3 class="flat-box__title">Recommended Tracks</h3>
             <ul class="tracks">
@@ -71,7 +75,7 @@
       </div>
     </section>
     <section class="workshop-main">
-      <div class="playlist box full">
+      <div class="playlist box full dragging-fade">
         <header class="playlist__header">
           <div class="input-wrapper">
             <input type="text" class="playlist__title input input--title" placeholder="enter a playlist title..."/>
@@ -131,80 +135,7 @@
     </section>
   </section>
   <section class="workshop-bottom">
-    <div class="box full">
-      <h3 class="box__title">Suggestions</h3>
-      <ul class="suggestions">
-        <li>
-          <div class="block-wrapper">
-            <div class="block block--genre">
-              <div class="block__thumb">
-                <span class="icon icon-headphones"></span>
-              </div>
-              <div class="block__info">
-                <div class="block__title">Seed Name</div>
-                <div class="block__subtitle">genre</div>
-              </div>
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="block-wrapper">
-            <div class="block block--artist">
-              <div class="block__thumb">
-                <span class="icon icon-headphones"></span>
-              </div>
-              <div class="block__info">
-                <div class="block__title">Seed Name</div>
-                <div class="block__subtitle">artist</div>
-              </div>
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="block-wrapper">
-            <div class="block block--track">
-              <div class="block__thumb">
-                <span class="icon icon-headphones"></span>
-              </div>
-              <div class="block__info">
-                <div class="block__title">
-                  <span class="text--track">Seed Name</span>
-                </div>
-                <div class="block__subtitle">track</div>
-              </div>
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="block-wrapper">
-            <div class="block block--track">
-              <div class="block__thumb">
-                <span class="icon icon-headphones"></span>
-              </div>
-              <div class="block__info">
-                <div class="block__title">
-                  <span class="text--track">Seed Name</span>
-                </div>
-                <div class="block__subtitle">track</div>
-              </div>
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="block-wrapper">
-            <div class="block block--genre">
-              <div class="block__thumb">
-                <span class="icon icon-headphones"></span>
-              </div>
-              <div class="block__info">
-                <div class="block__title">Seed Name</div>
-                <div class="block__subtitle">genre</div>
-              </div>
-            </div>
-          </div>
-        </li>
-      </ul>
-    </div>
+    <suggestions></suggestions>
   </section>
 
   <authentication ng-hide="authenticated"></authentication>
