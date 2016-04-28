@@ -1,0 +1,16 @@
+<div class="flat-box">
+  <h3 class="flat-box__title">Recommended Tracks</h3>
+  <ul class="tracks">
+    <li ng-repeat="track in recommendedVM.recommendations.tracks | limitTo:8 track by track.id">
+      <div class="track">
+        <div class="track__thumb"></div>
+        <div class="track__info">
+          <div class="track__title"
+               ng-bind="::track.name"></div>
+          <div class="track__subtitle"
+               ng-bind="::track.artists | artists"></div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

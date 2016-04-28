@@ -1,10 +1,15 @@
-<div class="box seeds droppable-box"
-     jqyoui-droppable="seedsVM.drop"
-     data-drop="true"
-     data-jqyoui-options="seedsVM.dropOptions"
-     ng-model="seedsVM.seeds">
-  <h3 class="box__title">Seeds</h3>
-  <ul class="blocks">
+<div class="box box--less-padding seeds droppable-box dragging-fade dragging-fade--suggestion"
+     ng-class="{
+        'state--empty': seedsVM.seeds.length === 0
+      }">
+  <div class="box__title-wrapper">
+    <h3 class="box__title">Seeds</h3>
+  </div>
+  <ul class="blocks blocks--more-padding droppable-list"
+      dnd-list="seedsVM.seeds"
+      dnd-allowed-types="['suggestion']"
+      dnd-drop="seedsVM.onDrop(event, index, item, type)"
+    >
     <li ng-repeat="seed in seedsVM.seeds">
       <seed data="seed"></seed>
     </li>

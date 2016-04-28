@@ -26,15 +26,20 @@
       return _states.dragging;
     }
 
-    function startDrag() {
+    function startDrag(type) {
       _states.dragging = true;
-      $rootScope.$broadcast("dragging.event", true);
+      $rootScope.$broadcast("dragging.event", {
+        dragging: true,
+        type: type
+      });
       $log.debug("dragging");
     }
 
-    function stopDrag() {
+    function stopDrag(type) {
       _states.dragging = false;
-      $rootScope.$broadcast("dragging.event", false);
+      $rootScope.$broadcast("dragging.event", {
+        dragging: false
+      });
       $log.debug("stopping");
     }
 

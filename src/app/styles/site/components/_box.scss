@@ -15,6 +15,15 @@
 
   }
 
+  &.box--less-padding {
+    padding: 15px 0 0 0;
+
+    .box__title-wrapper {
+      padding: 0 15px;
+    }
+
+  }
+
   &.full {
     height: 100%; // temporary
   }

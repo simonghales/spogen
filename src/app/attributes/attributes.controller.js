@@ -6,25 +6,38 @@
     .controller('AttributesController', AttributesController);
 
   /** @ngInject */
-  function AttributesController($log) {
+  function AttributesController($log, $scope, AttributesService) {
     var vm = this;
 
-    vm.models = {
-      energy: 'high',
-      popularity: 'mid',
-      danceability: '',
-      valence: 'mid'
-    };
+    vm.models = AttributesService.getAttributes();
 
     vm.updateAttribute = updateAttribute;
 
+    _activate();
+
     function updateAttribute(term, value) {
 
-      if(vm.models[term] === value) {
-        vm.models[term] = '';
-      } else {
-        vm.models[term] = value;
-      }
+      AttributesService.updateAttribute(term, value);
+
+    }
+
+    function _activate() {
+
+      $scope.$watch('vm.models', function(newVal, oldVal) {
+
+        $log.debug("a change"); // not sure why this isn't firing...
+
+        if(newVal) {
+
+          for (var key in newVal) {
+
+            vm.models[key] = newVal[key];
+
+          }
+
+        }
+
+      }, true);
 
     }
 

@@ -1,8 +1,9 @@
-<section class="page page--default"
+<section class="page page--default dragging--{{draggingType}}"
          drag-classes=""
          ng-class="{
           'state--dragging': states.dragging
          }">
+
   <section class="workshop-top">
     <section class="workshop-side">
       <quick-search></quick-search>
@@ -12,65 +13,7 @@
           <attributes></attributes>
         </section>
         <section class="workshop-results dragging-fade">
-          <div class="flat-box">
-            <h3 class="flat-box__title">Recommended Tracks</h3>
-            <ul class="tracks">
-              <li>
-                <div class="track">
-                  <div class="track__thumb"></div>
-                  <div class="track__info">
-                    <div class="track__title">Track Name</div>
-                    <div class="track__subtitle">Artist</div>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div class="track">
-                  <div class="track__thumb"></div>
-                  <div class="track__info">
-                    <div class="track__title">Track Name</div>
-                    <div class="track__subtitle">Artist</div>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div class="track">
-                  <div class="track__thumb"></div>
-                  <div class="track__info">
-                    <div class="track__title">Track Name</div>
-                    <div class="track__subtitle">Artist</div>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div class="track">
-                  <div class="track__thumb"></div>
-                  <div class="track__info">
-                    <div class="track__title">Track Name</div>
-                    <div class="track__subtitle">Artist</div>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div class="track">
-                  <div class="track__thumb"></div>
-                  <div class="track__info">
-                    <div class="track__title">Track Name</div>
-                    <div class="track__subtitle">Artist</div>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div class="track">
-                  <div class="track__thumb"></div>
-                  <div class="track__info">
-                    <div class="track__title">Track Name</div>
-                    <div class="track__subtitle">Artist</div>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </div>
+          <recommended></recommended>
         </section>
       </div>
     </section>
@@ -137,6 +80,16 @@
   <section class="workshop-bottom">
     <suggestions></suggestions>
   </section>
+
+  <div class="seeds-trash">
+    <div class="seeds-trash__icon icon icon-trash"
+         dnd-list="mainVM.deletedSeeds"
+         dnd-allowed-types="['seed', 'suggestion']"
+         dnd-drop="mainVM.deleteSeed(event, index, item, type)"
+         >
+      <div class="dndPlaceholder"></div>
+    </div>
+  </div>
 
   <authentication ng-hide="authenticated"></authentication>
 

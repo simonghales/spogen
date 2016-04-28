@@ -6,26 +6,37 @@
     .controller('SeedsController', SeedsController);
 
   /** @ngInject */
-  function SeedsController($log, $scope, SeedsService) {
+  function SeedsController($log, $scope, DragService, SeedsService) {
     var vm = this;
-
-    vm.drop = {
-      onDrop: "seedsVM.onDrop",
-      multiple: true
-    };
-
-    vm.dropOptions = {
-      accept: ".draggable--seed",
-      activeClass: "state--receivable",
-      hoverClass: "state--hovering"
-    };
 
     vm.seeds = [];
 
     vm.onDrop = onDrop;
+    vm.startDrag = startDrag;
+    vm.stopDrag = stopDrag;
+    vm.seedMoved = seedMoved;
 
-    function onDrop() {
-      $log.debug("seed dropped");
+    function onDrop(event, index, item, type) {
+
+      if (SeedsService.checkAddSeed(item)) {
+        SeedsService.addSeed(item);
+        return true;
+      }
+
+      return false;
+
+    }
+
+    function startDrag() {
+      DragService.startDrag();
+    }
+
+    function stopDrag() {
+      DragService.stopDrag();
+    }
+
+    function seedMoved() {
+      SeedsService.removeSeedAtIndex(index);
     }
 
     _activate();
@@ -37,7 +48,6 @@
         return SeedsService.getSeeds();
       }, function(newVal, oldVal) {
         vm.seeds = newVal;
-        $log.debug("updated seeds", vm.seeds);
       });
 
     }

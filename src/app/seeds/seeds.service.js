@@ -7,7 +7,7 @@
     .factory('SeedsService', SeedsService);
 
   /** @ngInject */
-  function SeedsService($log, $q, Spotify) {
+  function SeedsService($log, $q, Spotify, RecommendedService) {
 
     var _seeds = [];
 
@@ -16,8 +16,11 @@
       addGenreSeed: addGenreSeed,
       addSeed: addSeed,
       addTrackSeed: addTrackSeed,
+      checkAddSeed: checkAddSeed,
       getSeeds: getSeeds,
-      removeSeed: removeSeed
+      removeSeed: removeSeed,
+      removeSeedAtIndex: removeSeedAtIndex,
+      updateRecommendations: updateRecommendations
     };
 
     return service;
@@ -52,6 +55,9 @@
 
       _seeds.unshift(seed);
       _seeds = _seeds.slice(0, 5);
+
+      updateRecommendations();
+
     }
 
     function addTrackSeed(track) {
@@ -63,6 +69,18 @@
       };
 
       addSeed(seed);
+    }
+
+    function checkAddSeed(seed) {
+
+      for(var i = 0; i < _seeds.length; i++) {
+        if(seed.id === _seeds[i].id) {
+          return false;
+        }
+      }
+
+      return true;
+
     }
 
     function getSeeds() {
@@ -78,6 +96,19 @@
         }
       }
 
+      updateRecommendations();
+
+    }
+
+    function removeSeedAtIndex(index) {
+      _seeds.splice(index, 1);
+
+      updateRecommendations();
+
+    }
+
+    function updateRecommendations() {
+      RecommendedService.updateRecommendations(_seeds);
     }
 
   }

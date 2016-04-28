@@ -10,3 +10,6 @@
 .icon-smile:before { content: '\29'; } /* ')' */
 .icon-frown:before { content: '\2a'; } /* '*' */
 .icon-meh:before { content: '\2b'; } /* '+' */
+.icon-emo-unhappy:before { content: '\2c'; } /* ',' */
+.icon-emo-happy:before { content: '\2d'; } /* '-' */
+.icon-trash:before { content: '\2e'; } /* '.' */

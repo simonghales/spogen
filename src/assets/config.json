@@ -71,6 +71,24 @@
       "css": "meh",
       "code": 43,
       "src": "fontawesome"
+    },
+    {
+      "uid": "53ed8570225581269cd7eff5795e8bea",
+      "css": "emo-unhappy",
+      "code": 44,
+      "src": "fontelico"
+    },
+    {
+      "uid": "c64623255a4a7c72436b199b05296c4f",
+      "css": "emo-happy",
+      "code": 45,
+      "src": "fontelico"
+    },
+    {
+      "uid": "bbfb51903f40597f0b70fd75bc7b5cac",
+      "css": "trash",
+      "code": 46,
+      "src": "fontawesome"
     }
   ]
 }

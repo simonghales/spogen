@@ -1,0 +1,42 @@
+.seeds-trash {
+  position: fixed;
+  left: -10px;
+  top: -10px;
+  pointer-events: none;
+  visibility: hidden;
+
+  .state--dragging.dragging--suggestion &,
+  .state--dragging.dragging--seed & {
+    visibility: visible;
+    pointer-events: auto;
+
+    .seeds-trash__icon {
+      animation: bounceIn 500ms ease;
+    }
+
+  }
+
+}
+
+  .seeds-trash__icon {
+    @include box-shadow-multiple(0 0 10px rgba(0,0,0,0.1));
+    @include border-radius(50%);
+    @include transition(transform 250ms ease);
+    width: 50px;
+    height: 50px;
+    background-color: #{map_get($colours, vibrant)};
+    color: #ffffff;
+    text-align: center;
+    line-height: 50px;
+    font-size: 24px;
+
+    &.dndDragover {
+      //transform: scale(1.2);
+      transform: translate(20px, 20px) scale(1.1);
+    }
+
+    .dndPlaceholder {
+      display: none;
+    }
+
+  }

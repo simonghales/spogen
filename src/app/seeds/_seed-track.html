@@ -1,4 +1,11 @@
-<div class="block block--track">
+<div class="block block--track"
+     dnd-draggable="seed"
+     dnd-effect-allowed="move"
+     dnd-type="'seed'"
+     dnd-dragstart="seedVM.startDrag()"
+     dnd-dragend="seedVM.stopDrag()"
+     dnd-moved="seedVM.seedMoved($index)"
+  >
   <div class="block__thumb">
     <span class="icon icon-music"></span>
   </div>

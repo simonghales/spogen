@@ -5,12 +5,21 @@
     opacity: 0.35;
   }
 
+  &.dragging-fade--suggestion {
+
+    .state--dragging.dragging--suggestion & {
+      opacity: 1;
+    }
+
+  }
+
 }
 
 .droppable-box {
   @include transition(transform 250ms ease);
   position: relative;
 
+  .state--dragging.dragging--suggestion &,
   &.state--receivable {
 
     .drop-message {
@@ -49,7 +58,7 @@
     background-color: #FF0073;
     color: #ffffff;
     text-transform: uppercase;
-    font-size: .8em;
+    font-size: .75em;
     font-weight: 700;
     padding: 10px 15px;
     transform: translateY(50%);

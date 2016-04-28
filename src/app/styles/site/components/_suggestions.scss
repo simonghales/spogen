@@ -13,13 +13,22 @@
     cursor: pointer;
     padding: 10px;
 
+    &.dndDragging,
     &:hover {
       @include box-shadow-multiple(0 0 1px rgba(0,0,0,0.1), 0 0 10px rgba(0,0,0,0.05));
     }
 
+    &.dndDragging,
     &:active {
       background-color: #ffffff;
       transform: scale(1.05);
+    }
+
+    &.dndDraggingSource {
+      transform: scale(1);
+      background: none;
+      box-shadow: none;
+      opacity: 0.5;
     }
 
     .block {

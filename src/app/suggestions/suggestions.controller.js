@@ -24,26 +24,46 @@
     vm.suggestions = [
       {
         type: "genre",
-        id: "Boop",
-        name: "Boop"
+        id: "rock",
+        name: "rock"
       },
       {
         type: "genre",
-        id: "Woop",
-        name: "Woop"
+        id: "alt-rock",
+        name: "alt-rock"
       },
       {
         type: "genre",
-        id: "Shoop",
-        name: "Shoop"
+        id: "j-rock",
+        name: "j-rock"
+      },
+      {
+        type: "genre",
+        id: "hard-rock",
+        name: "hard-rock"
+      },
+      {
+        type: "genre",
+        id: "indie",
+        name: "indie"
+      },
+      {
+        type: "genre",
+        id: "country",
+        name: "country"
       }
     ];
 
+    vm.seedMoved = seedMoved;
     vm.startDrag = startDrag;
     vm.stopDrag = stopDrag;
 
+    function seedMoved(index) {
+      vm.suggestions.splice(index, 1);
+    }
+
     function startDrag() {
-      DragService.startDrag();
+      DragService.startDrag('suggestion');
     }
 
     function stopDrag() {

@@ -19,16 +19,20 @@
 
       function _activate() {
 
+        scope.draggingType = '';
+
         scope.states = {
           dragging: false
         };
 
-        scope.$on("dragging.event", function(event, dragging) {
+        scope.$on("dragging.event", function(event, data) {
           $timeout(function() {
-            scope.states.dragging = dragging;
+            scope.states.dragging = data.dragging;
+            if(data.hasOwnProperty('type')) {
+              scope.draggingType = data.type;
+            }
           });
         });
-
 
       }
 
