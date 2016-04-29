@@ -1,4 +1,4 @@
-<div class="box box--less-padding seeds droppable-box dragging-fade dragging-fade--suggestion"
+<div class="box box--less-padding seeds droppable-box dragging-fade dragging-fade--suggestion dragging-fade--tracks"
      ng-class="{
         'state--empty': seedsVM.seeds.length === 0
       }">
@@ -7,7 +7,7 @@
   </div>
   <ul class="blocks blocks--more-padding droppable-list"
       dnd-list="seedsVM.seeds"
-      dnd-allowed-types="['suggestion']"
+      dnd-allowed-types="['genre','track']"
       dnd-drop="seedsVM.onDrop(event, index, item, type)"
     >
     <li ng-repeat="seed in seedsVM.seeds">
@@ -18,7 +18,7 @@
     ng-show="seedsVM.seeds.length === 0">
     drag and drop a seed here or search above for seeds
   </p>
-  <div class="drop-message">
+  <div class="drop-message drop-message--seed">
     <div class="text">Drop seeds here</div>
   </div>
 </div>

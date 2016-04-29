@@ -6,7 +6,7 @@
     .controller('AttributesController', AttributesController);
 
   /** @ngInject */
-  function AttributesController($log, $scope, AttributesService) {
+  function AttributesController($log, $scope, AttributesService, RecommendedService) {
     var vm = this;
 
     vm.models = AttributesService.getAttributes();
@@ -18,6 +18,7 @@
     function updateAttribute(term, value) {
 
       AttributesService.updateAttribute(term, value);
+      RecommendedService.updateRecommendations();
 
     }
 

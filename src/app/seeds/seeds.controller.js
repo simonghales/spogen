@@ -6,7 +6,7 @@
     .controller('SeedsController', SeedsController);
 
   /** @ngInject */
-  function SeedsController($log, $scope, DragService, SeedsService) {
+  function SeedsController($log, $scope, DragService, RecommendedService, SeedsService) {
     var vm = this;
 
     vm.seeds = [];
@@ -18,8 +18,11 @@
 
     function onDrop(event, index, item, type) {
 
+      $log.debug("dropped type", type);
+
       if (SeedsService.checkAddSeed(item)) {
-        SeedsService.addSeed(item);
+        SeedsService.addSeedType(item, type);
+        RecommendedService.updateRecommendations();
         return true;
       }
 
@@ -37,6 +40,7 @@
 
     function seedMoved() {
       SeedsService.removeSeedAtIndex(index);
+      RecommendedService.updateRecommendations();
     }
 
     _activate();

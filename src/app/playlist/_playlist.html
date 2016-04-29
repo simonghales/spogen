@@ -1,0 +1,53 @@
+<div class="playlist box full droppable-box dragging-fade dragging-fade--tracks"
+     dnd-list="playlistVM.tracks"
+     dnd-allowed-types="['track']"
+     dnd-drop="playlistVM.onDrop(event, index, item, type)">
+  <header class="playlist__header">
+    <div class="input-wrapper">
+      <input type="text" class="playlist__title input input--title" placeholder="enter a playlist title..."/>
+    </div>
+    <h4 class="playlist__info">
+      <span
+        ng-pluralize=""
+        count="playlistVM.tracks.length"
+        when="{'0': 'no tracks',
+                     'one': '1 song',
+                     'other': '{} songs'}"></span>
+      ,
+      <span
+        ng-bind="playlistVM.tracks | msToTimeTotal"></span>
+    </h4>
+  </header>
+  <section>
+    <table class="playlist__table">
+      <thead>
+      <tr>
+        <th>SONG</th>
+        <th>ARTIST</th>
+        <th>ALBUM</th>
+        <th class="right">TIME</th>
+        <th>   </th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr ng-repeat="track in playlistVM.tracks">
+        <td ng-bind="::track.name"></td>
+        <td ng-bind="::track.artists | artists"></td>
+        <td ng-bind="::track.album.name"></td>
+        <td class="right"
+            ng-bind="::track.duration_ms | msToTime"></td>
+        <td>
+          <button class="btn btn--delete">
+            <span class="icon icon-cancel"></span>
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </section>
+  <button class="btn btn--major">Save Playlist</button>
+  <div class="drop-message drop-message--track">
+    <div class="text">Drop tracks here</div>
+  </div>
+  <div class="dndPlaceholder"></div>
+</div>

@@ -6,7 +6,7 @@
     .controller('QuickSearchController', QuickSearchController);
 
   /** @ngInject */
-  function QuickSearchController($log, $scope, AuthenticationService, HelpersService, SeedsService, Spotify) {
+  function QuickSearchController($log, $scope, AuthenticationService, HelpersService, RecommendedService, SeedsService, Spotify) {
     var vm = this;
 
     vm.data = {
@@ -40,16 +40,19 @@
 
     function addArtistSeed(artist) {
       SeedsService.addArtistSeed(artist);
+      RecommendedService.updateRecommendations();
       hideDropdown();
     }
 
     function addGenreSeed(genre) {
       SeedsService.addGenreSeed(genre);
+      RecommendedService.updateRecommendations();
       hideDropdown();
     }
 
     function addTrackSeed(track) {
       SeedsService.addTrackSeed(track);
+      RecommendedService.updateRecommendations();
       hideDropdown();
     }
 

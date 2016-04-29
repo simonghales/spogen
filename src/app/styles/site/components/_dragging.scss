@@ -13,16 +13,35 @@
 
   }
 
+  &.dragging-fade--tracks {
+
+    .state--dragging.dragging--tracks & {
+      opacity: 1;
+    }
+
+  }
+
 }
 
 .droppable-box {
   @include transition(transform 250ms ease);
   position: relative;
 
+  .state--dragging.dragging--tracks &,
   .state--dragging.dragging--suggestion &,
   &.state--receivable {
 
-    .drop-message {
+    .drop-message--seed {
+      animation: flipInY 500ms ease;
+      animation-fill-mode: forwards;
+      visibility: visible;
+    }
+
+  }
+
+  .state--dragging.dragging--tracks & {
+
+    .drop-message--track {
       animation: flipInY 500ms ease;
       animation-fill-mode: forwards;
       visibility: visible;

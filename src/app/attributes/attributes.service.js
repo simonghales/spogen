@@ -10,10 +10,10 @@
   function AttributesService($log, $q, Spotify) {
 
     var _attributes = {
-      energy: 'high',
-      popularity: 'mid',
+      energy: '',
+      popularity: '',
       danceability: '',
-      valence: 'mid'
+      valence: ''
     };
 
     var service = {

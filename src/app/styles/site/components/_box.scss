@@ -38,6 +38,15 @@
   padding: 15px 0;
 }
 
+  .flat-box__title-wrapper {
+    position: relative;
+  }
+
   .flat-box__title {
     @extend .box__title;
   }
+
+.busy-icon {
+  color: #CCC;
+  font-size: .8em;
+}

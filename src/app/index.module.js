@@ -10,6 +10,7 @@
       'spogen.attributes',
       'spogen.recommended',
       'spogen.suggestions',
+      'spogen.playlist',
       'spogen.spotify',
 
       'offClick',
@@ -106,6 +107,20 @@
   angular.module('spogen.suggestions.directives', []);
 
   angular.module('spogen.suggestions.services', []);
+
+  //
+
+  angular.module('spogen.playlist', [
+    'spogen.playlist.controllers',
+    'spogen.playlist.directives',
+    'spogen.playlist.services'
+  ]);
+
+  angular.module('spogen.playlist.controllers', []);
+
+  angular.module('spogen.playlist.directives', []);
+
+  angular.module('spogen.playlist.services', []);
 
   //
 

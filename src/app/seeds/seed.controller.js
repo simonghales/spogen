@@ -6,7 +6,7 @@
     .controller('SeedController', SeedController);
 
   /** @ngInject */
-  function SeedController($log, $scope, DragService, SeedsService) {
+  function SeedController($log, $scope, DragService, RecommendedService, SeedsService) {
     var vm = this;
 
     vm.removeSeed = removeSeed;
@@ -42,6 +42,7 @@
       var id = $scope.seed.id;
 
       SeedsService.removeSeed(id);
+      RecommendedService.updateRecommendations();
 
     }
 

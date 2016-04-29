@@ -32,6 +32,7 @@
   }
 
     .track__thumb {
+      @extend .thumbnail;
       float: left;
       width: 42px;
       height: 42px;

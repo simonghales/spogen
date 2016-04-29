@@ -1,9 +1,25 @@
 <div class="flat-box">
-  <h3 class="flat-box__title">Recommended Tracks</h3>
+  <div class="flat-box__title-wrapper">
+    <h3 class="flat-box__title">Recommended Tracks</h3>
+    <span ng-show="recommendedVM.states.updating">
+      <span class="busy-icon icon icon-spin3 animate-spin"></span>
+    </span>
+  </div>
   <ul class="tracks">
+    <li ng-if="recommendedVM.recommendations && recommendedVM.recommendations.tracks.length === 0">
+      <p class="small-message">
+        No recommendations could be generated. Try fiddling with the attributes and / or seeds.
+      </p>
+    </li>
     <li ng-repeat="track in recommendedVM.recommendations.tracks | limitTo:8 track by track.id">
-      <div class="track">
-        <div class="track__thumb"></div>
+      <div class="track"
+           dnd-draggable="track"
+           dnd-effect-allowed="copy"
+           dnd-type="'track'"
+           dnd-dragstart="recommendedVM.startDrag()"
+           dnd-dragend="recommendedVM.stopDrag()">
+        <div class="track__thumb"
+             back-img="{{::track.album.images[0].url}}"></div>
         <div class="track__info">
           <div class="track__title"
                ng-bind="::track.name"></div>
