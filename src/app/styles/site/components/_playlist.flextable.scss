@@ -1,0 +1,131 @@
+.playlist__flextable {
+  display: flex;
+  flex-flow: column;
+  margin-top: 15px;
+
+  .col {
+    //flex: 1;
+    padding: 10px 5px;
+
+    &.col--pos {
+      min-width: 40px;
+      text-align: right;
+    }
+
+    &.col--track,
+    &.col--artist,
+    &.col--album {
+      flex: 1;
+    }
+
+    &.col--track {}
+
+    &.col--artist {}
+
+    &.col--album {}
+
+    &.col--time {
+      width: 50px;
+      text-align: right;
+    }
+
+    &.col--remove {
+      width: 35px;
+      position: relative;
+    }
+
+  }
+
+}
+
+  .playlist__flextable__header {
+    display: flex;
+    //padding-bottom: 15px; // need for when it overflows
+    border-bottom: 1px solid #f4f4f4;
+
+    .col {
+      color: #dddddd;
+    }
+
+  }
+
+  .playlist__flextable__body {
+    flex: 1;
+    overflow: auto;
+
+    &.dndDragover {
+
+      &::after {
+        visibility: visible;
+      }
+
+    }
+
+    &::after {
+      @include border-radius(5px);
+      content: '';
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      right: 0px;
+      bottom: 0px;
+      border: 2px solid #FF0073;
+      pointer-events: none;
+      visibility: hidden;
+      //background-color: rgba(0,0,0,0.02);
+    }
+
+    .dndPlaceholder {
+      @include border-radius(3px);
+      width: 100%;
+      height: 36px;
+      background-color: #f8f8f8;
+      //display: none;
+    }
+
+    .row {
+      display: flex;
+      border-top: 1px solid #f4f4f4;
+
+      &:first-of-type {
+        border-top: 0;
+      }
+
+      &:hover {
+
+        .btn--delete {
+          opacity: 1;
+        }
+
+      }
+
+      &.dndDragging {
+        background-color: #ffffff;
+        border: 0;
+        color: #555555;
+        //display: block;
+
+        //.col {
+        //  visibility: hidden;
+        //}
+        //
+        //.col--track {
+        //  visibility: visible;
+        //}
+
+      }
+
+      &.dndDraggingSource {
+        display: none;
+      }
+
+    }
+
+    .btn--delete {
+      position: absolute;
+      top: 7px;
+      right: 0;
+      opacity: 0;
+    }
+
+  }

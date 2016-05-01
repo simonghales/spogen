@@ -1,4 +1,4 @@
-<div class="box box--less-padding seeds droppable-box dragging-fade dragging-fade--suggestion dragging-fade--tracks"
+<div class="box box--less-padding seeds droppable-box dragging-fade dragging-fade--suggestion dragging-fade--tracks dragging-fade--seed"
      ng-class="{
         'state--empty': seedsVM.seeds.length === 0
       }">
@@ -7,7 +7,7 @@
   </div>
   <ul class="blocks blocks--more-padding droppable-list"
       dnd-list="seedsVM.seeds"
-      dnd-allowed-types="['genre','track']"
+      dnd-allowed-types="['genre','track','playlisttrack','seed','artist']"
       dnd-drop="seedsVM.onDrop(event, index, item, type)"
     >
     <li ng-repeat="seed in seedsVM.seeds">

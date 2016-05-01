@@ -25,8 +25,9 @@
         return "app/seeds/_seed-genre.html";
     }
 
-    function startDrag() {
-      DragService.startDrag('seed');
+    function startDrag(type) {
+      if(!type) type = 'seed';
+      DragService.startDrag(type);
     }
 
     function stopDrag() {

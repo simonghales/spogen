@@ -1,36 +1,17 @@
 .playlist {
   position: relative;
+  display: flex;
+  flex-flow: column;
 
-  &.dndDragover {
-
-    &::after {
-      visibility: visible;
-    }
-
-  }
-
-  &::after {
-    @include border-radius(5px);
-    content: '';
-    position: absolute;
-    top: 7px;
-    left: 7px;
-    right: 7px;
-    bottom: 7px;
-    border: 2px solid #FF0073;
-    pointer-events: none;
-    visibility: hidden;
-    //background-color: rgba(0,0,0,0.02);
+  .playlist__flextable {
+    flex: 1;
+    overflow: auto;
   }
 
   .btn--major {
     position: absolute;
     right: 15px;
     bottom: 15px;
-  }
-
-  .dndPlaceholder {
-    display: none;
   }
 
 }

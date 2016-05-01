@@ -6,24 +6,66 @@
     .controller('PlaylistController', PlaylistController);
 
   /** @ngInject */
-  function PlaylistController($log, $scope, PlaylistService) {
+  function PlaylistController($log, $scope, DragService, PlaylistService) {
     var vm = this;
 
     vm.tracks = PlaylistService.tracks;
 
     vm.onDrop = onDrop;
+    vm.removeTrack = removeTrack;
+    vm.startDrag = startDrag;
+    vm.stopDrag = stopDrag;
+    vm.trackMoved = trackMoved;
 
     _activate();
 
     function onDrop(event, index, item, type) {
 
-      if(!PlaylistService.checkIfInTracks(item)) {
-        PlaylistService.addTrack(item);
+      if(type === 'track') {
+        if(!PlaylistService.checkIfInTracks(item)) {
+          $log.debug("add track at this index", index);
+          PlaylistService.addTrack(item, index);
+          return true;
+        }
+      } else if (type === 'multitracks') {
+        $log.debug("dropping this data", item);
+        PlaylistService.addMultipleTrack(item, index);
         return true;
+      } else if (type === 'playlisttrack') {
+        PlaylistService.moveTrack(item, index);
+        $log.debug("dropping this playlist track", item, index);
+        return true;
+      } else if (type === 'seed-track') {
+        $log.debug("seed to add", item);
+        var track = item.info;
+        if(!PlaylistService.checkIfInTracks(track)) {
+          $log.debug("add track at this index", index);
+          PlaylistService.addTrack(track, index);
+          return true;
+        }
       }
+
 
       return false;
 
+    }
+
+    function removeTrack(track, index) {
+      PlaylistService.removeTrack(track, index);
+      $log.debug("remove at index", index);
+    }
+
+    function startDrag(type) {
+      if(!type) type = 'tracks';
+      DragService.startDrag(type);
+    }
+
+    function stopDrag() {
+      DragService.stopDrag();
+    }
+
+    function trackMoved(index) {
+      $log.debug("moved track from this index", index);
     }
 
     function _activate() {

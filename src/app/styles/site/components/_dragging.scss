@@ -1,8 +1,26 @@
+
+.dragging--hide {
+
+  .state--dragging & {
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+}
+
 .dragging-fade {
   @include transition(opacity 250ms ease);
 
   .state--dragging & {
     opacity: 0.35;
+  }
+
+  &.dragging-fade--seed {
+
+    .state--dragging.dragging--seed & {
+      opacity: 1;
+    }
+
   }
 
   &.dragging-fade--suggestion {
@@ -29,12 +47,21 @@
 
   }
 
+  &.dragging-fade--seed-track {
+
+    .state--dragging.dragging--seed-track & {
+      opacity: 1;
+    }
+
+  }
+
 }
 
 .droppable-box {
   @include transition(transform 250ms ease);
   position: relative;
 
+  .state--dragging.dragging--seed &,
   .state--dragging.dragging--tracks &,
   .state--dragging.dragging--suggestion &,
   &.state--receivable {
@@ -47,6 +74,7 @@
 
   }
 
+  .state--dragging.dragging--seed-track &,
   .state--dragging.dragging--multitracks &,
   .state--dragging.dragging--tracks & {
 

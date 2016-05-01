@@ -1,7 +1,4 @@
-<div class="playlist box full droppable-box dragging-fade dragging-fade--tracks dragging-fade--multitracks"
-     dnd-list="playlistVM.tracks"
-     dnd-allowed-types="['track', 'multitracks']"
-     dnd-drop="playlistVM.onDrop(event, index, item, type)">
+<div class="playlist box full dragging-fade dragging-fade--tracks dragging-fade--multitracks dragging-fade--seed-track droppable-box">
   <header class="playlist__header">
     <div class="input-wrapper">
       <input type="text" class="playlist__title input input--title" placeholder="enter a playlist title..."/>
@@ -11,43 +8,66 @@
         ng-pluralize=""
         count="playlistVM.tracks.length"
         when="{'0': 'no tracks',
-                     'one': '1 song',
-                     'other': '{} songs'}"></span>
+                     'one': '1 track',
+                     'other': '{} tracks'}"></span>
       ,
       <span
         ng-bind="playlistVM.tracks | msToTimeTotal"></span>
     </h4>
   </header>
-  <section>
-    <table class="playlist__table">
-      <thead>
-      <tr>
-        <th>SONG</th>
-        <th>ARTIST</th>
-        <th>ALBUM</th>
-        <th class="right">TIME</th>
-        <th>   </th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr ng-repeat="track in playlistVM.tracks">
-        <td ng-bind="::track.name"></td>
-        <td ng-bind="::track.artists | artists"></td>
-        <td ng-bind="::track.album.name"></td>
-        <td class="right"
-            ng-bind="::track.duration_ms | msToTime"></td>
-        <td>
-          <button class="btn btn--delete">
-            <span class="icon icon-cancel"></span>
-          </button>
-        </td>
-      </tr>
-      </tbody>
-    </table>
-  </section>
-  <button class="btn btn--major">Save Playlist</button>
+  <div class="playlist__flextable">
+      <header class="playlist__flextable__header">
+        <div class="col col--header col--track">
+          TRACK
+        </div>
+        <div class="col col--header col--artist">
+          ARTIST
+        </div>
+        <div class="col col--header col--album">
+          ALBUM
+        </div>
+        <div class="col col--header right col--time">
+          TIME
+        </div>
+        <div class="col col--header empty col--remove"></div>
+      </header>
+      <div class="playlist__flextable__body droppable-box"
+           dnd-list="playlistVM.tracks"
+           dnd-allowed-types="['track', 'multitracks', 'playlisttrack', 'seed-track']"
+           dnd-drop="playlistVM.onDrop(event, index, item, type)">
+        <div class="row"
+             ng-repeat="track in playlistVM.tracks track by track.id"
+             dnd-draggable="track"
+             dnd-effect-allowed="move"
+             dnd-type="'playlisttrack'"
+             dnd-dragstart="playlistVM.startDrag()"
+             dnd-dragend="playlistVM.stopDrag()"
+             dnd-moved="playlistVM.trackMoved($index)"
+             >
+          <div class="col col--track"
+            ng-bind="::track.name">
+          </div>
+          <div class="col col--artist"
+            ng-bind="::track.artists | artists">
+          </div>
+          <div class="col col--album"
+            ng-bind="::track.album.name">
+          </div>
+          <div class="col col--time"
+               ng-bind="::track.duration_ms | msToTime">
+          </div>
+          <div class="col col--remove">
+            <button class="btn btn--delete"
+                    ng-click="playlistVM.removeTrack(track, $index);">
+              <span class="icon icon-cancel"></span>
+            </button>
+          </div>
+        </div>
+        <div class="dndPlaceholder"></div>
+      </div>
+    </div>
+  <!--<button class="btn btn&#45;&#45;major">Save Playlist</button>-->
   <div class="drop-message drop-message--track">
     <div class="text">Drop tracks here</div>
   </div>
-  <div class="dndPlaceholder"></div>
 </div>

@@ -6,7 +6,7 @@
     .controller('QuickSearchController', QuickSearchController);
 
   /** @ngInject */
-  function QuickSearchController($log, $scope, AuthenticationService, HelpersService, RecommendedService, SeedsService, Spotify) {
+  function QuickSearchController($log, $scope, AuthenticationService, DragService, HelpersService, RecommendedService, SeedsService, Spotify) {
     var vm = this;
 
     vm.data = {
@@ -34,7 +34,10 @@
     vm.addTrackSeed = addTrackSeed;
     vm.considerShowingDropdown = considerShowingDropdown;
     vm.hideDropdown = hideDropdown;
+    vm.seedMoved = seedMoved;
     vm.showDropdown = showDropdown;
+    vm.startDrag = startDrag;
+    vm.stopDrag = stopDrag;
 
     _activate();
 
@@ -95,6 +98,20 @@
 
       $log.debug("search param will be for", HelpersService.encodeURIComponentPlus(vm.models.search));
 
+    }
+
+    function seedMoved() {
+      hideDropdown();
+      $log.warn("hide the dropdown");
+    }
+
+    function startDrag(type) {
+      if(!type) type = 'tracks';
+      DragService.startDrag(type);
+    }
+
+    function stopDrag() {
+      DragService.stopDrag();
     }
 
     function _activate() {

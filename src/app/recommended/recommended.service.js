@@ -13,7 +13,7 @@
       getRecommendations: getRecommendations,
       prepAttributes: prepAttributes,
       prepQueryParams: prepQueryParams,
-      recommendations: {},
+      recommendations: null,
       updateRecommendations: updateRecommendations,
       updating: false
     };

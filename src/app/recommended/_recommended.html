@@ -5,14 +5,23 @@
       <span class="busy-icon icon icon-spin3 animate-spin"></span>
     </span>
   </div>
-  <div class="multi-dragger"
+  <div
+       ng-hide="!recommendedVM.recommendations || recommendedVM.recommendations.tracks.length === 0"
+       class="multi-dragger"
        dnd-draggable="recommendedVM.recommendations.tracks"
        dnd-effect-allowed="copy"
        dnd-type="'multitracks'"
        dnd-dragstart="recommendedVM.startDrag('multitracks')"
        dnd-dragend="recommendedVM.stopDrag()">
     <span class="icon icon-th-list"></span>
-    <span class="text">Drag all <span>12 tracks</span></span>
+    <span class="text">Drag to add
+      <span
+        ng-pluralize=""
+        count="recommendedVM.recommendations.tracks.length"
+        when="{'0': 'no tracks',
+                     'one': '1 track',
+                     'other': 'all {} tracks'}"></span>
+    </span>
   </div>
   <ul class="tracks">
     <li ng-if="recommendedVM.recommendations && recommendedVM.recommendations.tracks.length === 0">

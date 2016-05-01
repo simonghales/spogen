@@ -5,6 +5,7 @@
   pointer-events: none;
   visibility: hidden;
 
+  .state--dragging.dragging--seed-track &,
   .state--dragging.dragging--suggestion &,
   .state--dragging.dragging--seed & {
     visibility: visible;
@@ -32,7 +33,7 @@
 
     &.dndDragover {
       //transform: scale(1.2);
-      transform: translate(20px, 20px) scale(1.1);
+      transform: scale(1.25);
     }
 
     .dndPlaceholder {
