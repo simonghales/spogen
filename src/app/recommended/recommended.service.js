@@ -86,7 +86,7 @@
 
       params = prepAttributes(attributes, params);
 
-      params.limit = 30;
+      params.limit = 8;
 
       return params;
 

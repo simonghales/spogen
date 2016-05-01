@@ -20,8 +20,9 @@
 
     _activate();
 
-    function startDrag() {
-      DragService.startDrag('tracks');
+    function startDrag(type) {
+      if(!type) type = 'tracks';
+      DragService.startDrag(type);
     }
 
     function stopDrag() {

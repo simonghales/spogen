@@ -21,6 +21,14 @@
 
   }
 
+  &.dragging-fade--multitracks {
+
+    .state--dragging.dragging--multitracks & {
+      opacity: 1;
+    }
+
+  }
+
 }
 
 .droppable-box {
@@ -39,6 +47,7 @@
 
   }
 
+  .state--dragging.dragging--multitracks &,
   .state--dragging.dragging--tracks & {
 
     .drop-message--track {

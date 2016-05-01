@@ -95,6 +95,12 @@
       "css": "spin3",
       "code": 47,
       "src": "fontelico"
+    },
+    {
+      "uid": "f805bb95d40c7ef2bc51b3d50d4f2e5c",
+      "css": "th-list",
+      "code": 48,
+      "src": "fontawesome"
     }
   ]
 }
