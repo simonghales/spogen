@@ -8,8 +8,14 @@
   /** @ngInject */
   function routerConfig($stateProvider, $urlRouterProvider, $locationProvider) {
     $stateProvider
-      .state('home', {
+      .state('auth', {
         url: '/',
+        templateUrl: 'app/authentication/_authentication.html',
+        controller: 'AuthenticationController',
+        controllerAs: 'authVM'
+      })
+      .state('create', {
+        url: '/create',
         templateUrl: 'app/main/main.html',
         controller: 'MainController',
         controllerAs: 'mainVM'

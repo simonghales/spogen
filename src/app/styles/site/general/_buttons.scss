@@ -66,6 +66,7 @@
   font-size: 1.1em;
   padding: 10px 40px;
 
+  &.state--busy,
   &:hover {
     background-color: #333333;
     color: #ffffff;

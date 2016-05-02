@@ -1,7 +1,7 @@
 //** Generates state classes used to hide / reveal sections of the site
 
 // List of states that get iterated through
-$states-list: touch ready incomplete disconnected connected whiteLabel buffering activeTrack active selected empty loading;
+$states-list: busy;
 
 %state-show {
   display: none;

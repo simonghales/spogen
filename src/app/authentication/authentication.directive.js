@@ -26,12 +26,12 @@
 
       function activate() {
 
-        scope.$watch(function() {
-          return AuthenticationService.isAuth();
-        }, function(newVal, oldVal) {
-          $log.debug("auth result", newVal);
-          scope.authenticated = newVal;
-        });
+        //scope.$watch(function() {
+        //  return AuthenticationService.isAuth();
+        //}, function(newVal, oldVal) {
+        //  $log.debug("auth result", newVal);
+        //  scope.authenticated = newVal;
+        //});
 
       }
 

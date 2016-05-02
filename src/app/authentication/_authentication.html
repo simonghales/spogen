@@ -3,8 +3,12 @@
     <h1 class="heading--main">SPOGEN</h1>
     <h2 class="heading--sub">Generate a Spotify Playlist</h2>
     <button class="btn btn--connect"
-            ng-click="authVM.authenticate()">
-      Connect
+            ng-click="authVM.authenticate()"
+            ng-class="{
+              'state--busy': authVM.states.busy
+            }">
+      <span class="hide--busy m--inline">Connect</span>
+      <span class="show--busy m--inline">Connecting</span>
     </button>
   </div>
 </section>

@@ -63,7 +63,7 @@
       if (type === 'artist') {
         addArtistSeed(seed);
       } else if (type === 'genre') {
-        addGenreSeed(seed.id);
+        addGenreSeed(seed);
       } else {
         addTrackSeed(seed);
       }

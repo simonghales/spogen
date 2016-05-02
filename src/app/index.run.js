@@ -12,7 +12,7 @@
       authenticated: false
     };
 
-    _checkAuth();
+    //_checkAuth();
 
     function _checkAuth() {
 

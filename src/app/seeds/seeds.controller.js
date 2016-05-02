@@ -19,6 +19,7 @@
     function onDrop(event, index, item, type) {
 
       $log.debug("dropped type", type);
+      $log.debug("seeds dropped item", item);
 
       if (SeedsService.checkAddSeed(item)) {
         SeedsService.addSeedType(item, type);
