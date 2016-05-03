@@ -31,12 +31,13 @@
     }
 
     function isAuth() {
-      if(_authenticated) return true;
-      return !!$cookies.get('spotify-token');
+      return _authenticated;
+      //if(_authenticated) return true;
+      //return !!$cookies.get('spotify-token');
     }
 
     function setAuth(token) {
-      Spotify.setAuthToken(token);
+      //Spotify.setAuthToken(token);
       _authenticated = true;
       $rootScope.$broadcast('authenticated');
     }

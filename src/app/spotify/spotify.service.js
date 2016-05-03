@@ -10,6 +10,7 @@
   function SpotifyService($log, $q, Spotify) {
 
     var _data = {
+      seedGenres: [],
       topArtists: {
         long: null,
         short: null
@@ -22,6 +23,7 @@
 
     var service = {
       getData: getData,
+      loadGenres: loadGenres,
       loadUserData: loadUserData,
       loadUserTopArtists: loadUserTopArtists,
       loadUserTopTracks: loadUserTopTracks
@@ -33,12 +35,30 @@
       return _data;
     }
 
+    function loadGenres() {
+
+      var deferred = $q.defer();
+
+      Spotify.getAvailableGenreSeeds()
+        .then(function(data) {
+          _data.seedGenres = data.genres;
+          deferred.resolve(data.genres);
+        }, function(error) {
+          $log.warn("failed tor retrieve genres", error);
+          deferred.reject(error);
+        });
+
+      return deferred.promise;
+
+    }
+
     function loadUserData() {
 
       var deferred = $q.defer();
 
       var promises = {
         artists: loadUserTopArtists(),
+        genres: loadGenres(),
         tracks: loadUserTopTracks()
       }
 

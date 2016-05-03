@@ -17,19 +17,21 @@
   </header>
   <div class="playlist__flextable">
       <header class="playlist__flextable__header">
-        <div class="col col--header col--track">
-          TRACK
+        <div class="flex-content">
+          <div class="col col--header col--track">
+            TRACK
+          </div>
+          <div class="col col--header col--artist">
+            ARTIST
+          </div>
+          <div class="col col--header col--album">
+            ALBUM
+          </div>
+          <div class="col col--header right col--time">
+            TIME
+          </div>
+          <div class="col col--header empty col--remove"></div>
         </div>
-        <div class="col col--header col--artist">
-          ARTIST
-        </div>
-        <div class="col col--header col--album">
-          ALBUM
-        </div>
-        <div class="col col--header right col--time">
-          TIME
-        </div>
-        <div class="col col--header empty col--remove"></div>
       </header>
       <div class="playlist__flextable__body droppable-box"
            dnd-list="playlistVM.tracks"

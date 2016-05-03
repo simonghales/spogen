@@ -18,7 +18,10 @@
         url: '/create',
         templateUrl: 'app/main/main.html',
         controller: 'MainController',
-        controllerAs: 'mainVM'
+        controllerAs: 'mainVM',
+        data: {
+          authRequired: true
+        }
       })
       .state('callback', {
         url: '/callback',

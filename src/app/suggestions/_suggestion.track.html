@@ -1,0 +1,17 @@
+<div class="block block--track block--suggestion">
+  <div class="block__thumb">
+    <span class="icon icon-music"></span>
+  </div>
+  <div class="block__info">
+    <div class="block__title">
+      <span class="text--track"
+            ng-bind="::seed.name"></span>
+      <span class="subtitle">
+        —
+        <span
+          ng-bind="::seed.info.artists | artists"></span>
+      </span>
+    </div>
+    <div class="block__subtitle">track</div>
+  </div>
+</div>

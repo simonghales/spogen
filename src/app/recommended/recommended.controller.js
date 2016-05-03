@@ -39,7 +39,7 @@
 
         vm.recommendations = newVal;
 
-        $log.debug("updated recommendations", vm.recommendations);
+        $log.debug("updated recommendations...", vm.recommendations);
 
       }, true);
 
@@ -51,6 +51,12 @@
 
       }, true);
 
+      _loadInitialRecommendations();
+
+    }
+
+    function _loadInitialRecommendations() {
+      RecommendedService.loadInitialRecommendations();
     }
 
   }

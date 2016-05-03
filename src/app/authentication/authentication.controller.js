@@ -6,7 +6,7 @@
     .controller('AuthenticationController', AuthenticationController);
 
   /** @ngInject */
-  function AuthenticationController($log, $timeout, AuthenticationService, SpotifyService, Spotify) {
+  function AuthenticationController($log, $state, $timeout, AuthenticationService, SpotifyService, Spotify) {
     var vm = this;
 
     vm.states = {
@@ -36,6 +36,7 @@
 
       SpotifyService.loadUserData()
         .then(function() {
+          $state.transitionTo('create');
           vm.states.busy = false;
         }, function(error) {
           vm.states.busy = false;

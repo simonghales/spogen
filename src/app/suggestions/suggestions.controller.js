@@ -6,19 +6,11 @@
     .controller('SuggestionsController', SuggestionsController);
 
   /** @ngInject */
-  function SuggestionsController($log, DragService) {
+  function SuggestionsController($log, DragService, SuggestionsService) {
     var vm = this;
 
-    vm.drag = {
-      onStart: 'suggestionsVM.startDrag',
-      onStop: 'suggestionsVM.stopDrag'
-    };
-
-    vm.dragOptions = {
-      addClasses: false,
-      containment: "window",
-      revert: "invalid",
-      revertDuration: 300
+    vm.data = {
+      suggestions: []
     };
 
     vm.suggestions = [
@@ -58,6 +50,8 @@
     vm.startDrag = startDrag;
     vm.stopDrag = stopDrag;
 
+    _activate();
+
     function seedMoved(index) {
       vm.suggestions.splice(index, 1);
     }
@@ -68,6 +62,16 @@
 
     function stopDrag() {
       DragService.stopDrag();
+    }
+
+    function _activate() {
+      _getInitialSuggestions();
+    }
+
+
+    function _getInitialSuggestions() {
+      vm.data.suggestions = SuggestionsService.getInitialSuggestions();
+      $log.debug("suggestions", vm.data.suggestions);
     }
 
   }

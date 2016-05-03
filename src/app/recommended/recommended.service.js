@@ -7,10 +7,11 @@
     .factory('RecommendedService', RecommendedService);
 
   /** @ngInject */
-  function RecommendedService($log, $q, Spotify, AttributesService, SeedsService) {
+  function RecommendedService($log, $q, Spotify, AttributesService, SeedsService, SpotifyService) {
 
     var service = {
       getRecommendations: getRecommendations,
+      loadInitialRecommendations: loadInitialRecommendations,
       prepAttributes: prepAttributes,
       prepQueryParams: prepQueryParams,
       recommendations: null,
@@ -22,6 +23,20 @@
 
     function getRecommendations() {
       return service.recommendations;
+    }
+
+    function loadInitialRecommendations() {
+
+      var data = SpotifyService.getData();
+
+      var tracks = data.topTracks.long.items.slice(0, 8);
+
+      service.recommendations = {
+        tracks: tracks
+      };
+
+      return data.topTracks.long.items;
+
     }
 
     function prepAttributes(attributes, params) {

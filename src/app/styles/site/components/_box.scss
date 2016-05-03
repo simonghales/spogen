@@ -1,9 +1,22 @@
 .box {
-  @include box-shadow(0, 2px, 15px, rgba(0,0,0,0.05));
+  //@include box-shadow(0, 2px, 15px, rgba(0,0,0,0.05));
   @include border-radius(3px);
   background-color: #ffffff;
-  border: 1px solid #f0f0f0;
+  border: 1px solid #fafafa;
   padding: 15px;
+  position: relative;
+
+  &::before {
+    @include border-radius(3px);
+    @include box-shadow-multiple(0 2px 25px rgba(0,0,0,0.15));
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    right: 10px;
+    bottom: 0;
+    z-index: -1;
+  }
 
   &.box--slimmer {
     padding-left: 7px;

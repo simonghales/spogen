@@ -16,10 +16,11 @@
 }
 
 .input--search {
-  @include box-shadow(0, 2px, 15px, rgba(0,0,0,0.05));
+  //@include box-shadow(0, 2px, 15px, rgba(0,0,0,0.05));
+  @include box-shadow-multiple(inset 0 0 15px rgba(0,0,0,0.04), inset 0 10px 15px rgba(0,0,0,0.02));
   @include border-radius(3px);
   background-color: #eaeaea;
-  border: 1px solid #e4e4e4;
+  //border: 1px solid #e4e4e4;
   color: #555555;
   padding: 15px;
   padding-left: 45px;

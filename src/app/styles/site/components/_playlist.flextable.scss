@@ -39,13 +39,19 @@
 }
 
   .playlist__flextable__header {
-    display: flex;
+    height: 37px; // todo make dynamic
     //padding-bottom: 15px; // need for when it overflows
     border-bottom: 1px solid #f4f4f4;
+
+    .flex-content {
+      display: flex;
+    }
 
     .col {
       color: #dddddd;
     }
+
+
 
   }
 
