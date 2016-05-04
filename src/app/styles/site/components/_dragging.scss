@@ -8,6 +8,8 @@
 
 }
 
+$dragging-list: seed suggestion tracks multitracks track artist genre;
+
 .dragging-fade {
   @include transition(opacity 250ms ease);
 
@@ -15,42 +17,14 @@
     opacity: 0.35;
   }
 
-  &.dragging-fade--seed {
+  @each $current-state in $dragging-list {
 
-    .state--dragging.dragging--seed & {
-      opacity: 1;
-    }
+    &.dragging-fade--#{$current-state} {
 
-  }
+      .state--dragging.dragging--#{$current-state} & {
+        opacity: 1;
+      }
 
-  &.dragging-fade--suggestion {
-
-    .state--dragging.dragging--suggestion & {
-      opacity: 1;
-    }
-
-  }
-
-  &.dragging-fade--tracks {
-
-    .state--dragging.dragging--tracks & {
-      opacity: 1;
-    }
-
-  }
-
-  &.dragging-fade--multitracks {
-
-    .state--dragging.dragging--multitracks & {
-      opacity: 1;
-    }
-
-  }
-
-  &.dragging-fade--seed-track {
-
-    .state--dragging.dragging--seed-track & {
-      opacity: 1;
     }
 
   }
@@ -61,6 +35,9 @@
   @include transition(transform 250ms ease);
   position: relative;
 
+  .state--dragging.dragging--track &,
+  .state--dragging.dragging--artist &,
+  .state--dragging.dragging--genre &,
   .state--dragging.dragging--seed &,
   .state--dragging.dragging--tracks &,
   .state--dragging.dragging--suggestion &,
@@ -74,6 +51,7 @@
 
   }
 
+  .state--dragging.dragging--track &,
   .state--dragging.dragging--seed-track &,
   .state--dragging.dragging--multitracks &,
   .state--dragging.dragging--tracks & {
@@ -82,6 +60,18 @@
       animation: flipInY 500ms ease;
       animation-fill-mode: forwards;
       visibility: visible;
+    }
+
+  }
+
+  .state--dragging.dragging--track &,
+  .state--dragging.dragging--tracks & {
+
+    .drop-artist {
+      animation: flipInY 500ms ease;
+      animation-fill-mode: forwards;
+      visibility: visible;
+      pointer-events: auto;
     }
 
   }
@@ -101,12 +91,12 @@
 
 .drop-message {
   visibility: hidden;
+  pointer-events: none;
   position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
   text-align: center;
-  pointer-events: none;
 
   .text {
     @include border-radius(20px);

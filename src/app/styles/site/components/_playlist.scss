@@ -56,3 +56,25 @@
     }
 
   }
+
+  .playlist__submit {
+    position: absolute;
+    right: 20px;
+    bottom: -20px;
+
+    &::before {
+      @include border-radius(25px);
+      @include box-shadow-multiple(0 2px 20px rgba(0, 0, 0, 0.2), 0 2px 20px rgba(0, 148, 239, 0.4));
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 20px;
+      right: 20px;
+      bottom: 0;
+    }
+
+    .btn {
+      position: relative;
+    }
+
+  }

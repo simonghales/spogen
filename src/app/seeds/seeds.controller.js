@@ -10,11 +10,13 @@
     var vm = this;
 
     vm.seeds = [];
+    vm.trackArtists = [];
 
     vm.onDrop = onDrop;
     vm.startDrag = startDrag;
     vm.stopDrag = stopDrag;
     vm.seedMoved = seedMoved;
+    vm.trackToArtistDrop = trackToArtistDrop;
 
     function onDrop(event, index, item, type) {
 
@@ -42,6 +44,19 @@
     function seedMoved() {
       SeedsService.removeSeedAtIndex(index);
       RecommendedService.updateRecommendations();
+    }
+
+    function trackToArtistDrop(event, index, item, type) {
+
+      var artist = item.artists[0];
+
+      if (SeedsService.checkAddSeed(artist)) {
+        SeedsService.addSeedType(artist, "artist");
+        RecommendedService.updateRecommendations();
+        return true;
+      }
+
+      $log.debug("I want to add artist", item);
     }
 
     _activate();

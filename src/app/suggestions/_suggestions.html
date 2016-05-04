@@ -1,17 +1,19 @@
-<div class="box full dragging-fade dragging-fade--suggestion">
-  <h3 class="box__title">Suggestions</h3>
-  <ul class="suggestions">
-    <li ng-repeat="seed in suggestionsVM.data.suggestions | limitTo:7 track by seed.id">
-      <div class="block-wrapper draggable--seed"
-           dnd-draggable="seed"
-           dnd-effect-allowed="move"
-           dnd-type="'{{seed.type}}'"
-           dnd-dragstart="suggestionsVM.startDrag()"
-           dnd-dragend="suggestionsVM.stopDrag()"
-           dnd-moved="suggestionsVM.seedMoved($index)"
-        >
-        <suggestion data="seed"></suggestion>
-      </div>
-    </li>
-  </ul>
+<div class="box-wrapper full dragging-fade dragging-fade--suggestion">
+  <div class="box full">
+    <h3 class="box__title">Suggestions</h3>
+    <ul class="suggestions">
+      <li ng-repeat="seed in suggestionsVM.data.suggestions | limitTo:7 track by seed.id">
+        <div class="block-wrapper draggable--seed"
+             dnd-draggable="seed.info"
+             dnd-effect-allowed="move"
+             dnd-type="'{{seed.type}}'"
+             dnd-dragstart="suggestionsVM.startDrag(seed.type)"
+             dnd-dragend="suggestionsVM.stopDrag()"
+             dnd-moved="suggestionsVM.seedMoved($index)"
+          >
+          <suggestion data="seed"></suggestion>
+        </div>
+      </li>
+    </ul>
+  </div>
 </div>

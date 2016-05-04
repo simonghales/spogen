@@ -23,7 +23,7 @@
 
     function addMultipleTrack(tracks, index) {
 
-      if(index) {
+      if(index !== undefined) {
         for (var i = 0, len = tracks.length; i < len; i++) {
           var track = tracks[i];
           if(!checkIfInTracks(track)) {

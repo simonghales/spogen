@@ -1,159 +1,161 @@
-<div class="box box--attributes dragging-fade">
-  <h3 class="box__title">Attributes</h3>
-  <ul class="attributes">
-    <li>
-      <div class="attribute"
-            ng-class="{
+<div class="box-wrapper dragging-fade">
+  <div class="box box--attributes">
+    <h3 class="box__title">Attributes</h3>
+    <ul class="attributes">
+      <li>
+        <div class="attribute"
+             ng-class="{
               'state--inactive': !attributesVM.models.energy
             }">
-        <label class="attribute__label">Energy</label>
-        <ul class="attribute__options">
-          <li>
-            <button class="btn"
-                    ng-class="{
+          <label class="attribute__label">Energy</label>
+          <ul class="attribute__options">
+            <li>
+              <button class="btn"
+                      ng-class="{
                       'state--selected': attributesVM.models.energy === 'low'
                     }"
-                    ng-click="attributesVM.updateAttribute('energy', 'low')">
-              <span class="text">Low</span>
-            </button>
-          </li>
-          <li>
-            <button class="btn"
-                    ng-class="{
+                      ng-click="attributesVM.updateAttribute('energy', 'low')">
+                <span class="text">Low</span>
+              </button>
+            </li>
+            <li>
+              <button class="btn"
+                      ng-class="{
                       'state--selected': attributesVM.models.energy === 'mid'
                     }"
-                    ng-click="attributesVM.updateAttribute('energy', 'mid')">
-              <span class="text">Mid</span>
-            </button>
-          </li>
-          <li>
-            <button class="btn"
-                    ng-class="{
+                      ng-click="attributesVM.updateAttribute('energy', 'mid')">
+                <span class="text">Mid</span>
+              </button>
+            </li>
+            <li>
+              <button class="btn"
+                      ng-class="{
                       'state--selected': attributesVM.models.energy === 'high'
                     }"
-                    ng-click="attributesVM.updateAttribute('energy', 'high')">
-              <span class="text">High</span>
-            </button>
-          </li>
-        </ul>
-      </div>
-    </li>
-    <li>
-      <div class="attribute"
-           ng-class="{
+                      ng-click="attributesVM.updateAttribute('energy', 'high')">
+                <span class="text">High</span>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <div class="attribute"
+             ng-class="{
               'state--inactive': !attributesVM.models.popularity
             }">
-        <label class="attribute__label">Popularity</label>
-        <ul class="attribute__options">
-          <li>
-            <button class="btn"
-                    ng-class="{
+          <label class="attribute__label">Popularity</label>
+          <ul class="attribute__options">
+            <li>
+              <button class="btn"
+                      ng-class="{
                       'state--selected': attributesVM.models.popularity === 'low'
                     }"
-                    ng-click="attributesVM.updateAttribute('popularity', 'low')">
-              <span class="text">Low</span>
-            </button>
-          </li>
-          <li>
-            <button class="btn"
-                    ng-class="{
+                      ng-click="attributesVM.updateAttribute('popularity', 'low')">
+                <span class="text">Low</span>
+              </button>
+            </li>
+            <li>
+              <button class="btn"
+                      ng-class="{
                       'state--selected': attributesVM.models.popularity === 'mid'
                     }"
-                    ng-click="attributesVM.updateAttribute('popularity', 'mid')">
-              <span class="text">Mid</span>
-            </button>
-          </li>
-          <li>
-            <button class="btn"
-                    ng-class="{
+                      ng-click="attributesVM.updateAttribute('popularity', 'mid')">
+                <span class="text">Mid</span>
+              </button>
+            </li>
+            <li>
+              <button class="btn"
+                      ng-class="{
                       'state--selected': attributesVM.models.popularity === 'high'
                     }"
-                    ng-click="attributesVM.updateAttribute('popularity', 'high')">
-              <span class="text">High</span>
-            </button>
-          </li>
-        </ul>
-      </div>
-    </li>
-    <li>
-      <div class="attribute"
-           ng-class="{
+                      ng-click="attributesVM.updateAttribute('popularity', 'high')">
+                <span class="text">High</span>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <div class="attribute"
+             ng-class="{
               'state--inactive': !attributesVM.models.danceability
             }">
-        <label class="attribute__label">Danceability</label>
-        <ul class="attribute__options">
-          <li>
-            <button class="btn"
-                    ng-class="{
+          <label class="attribute__label">Danceability</label>
+          <ul class="attribute__options">
+            <li>
+              <button class="btn"
+                      ng-class="{
                       'state--selected': attributesVM.models.danceability === 'low'
                     }"
-                    ng-click="attributesVM.updateAttribute('danceability', 'low')">
-              <span class="text">Low</span>
-            </button>
-          </li>
-          <li>
-            <button class="btn"
-                    ng-class="{
+                      ng-click="attributesVM.updateAttribute('danceability', 'low')">
+                <span class="text">Low</span>
+              </button>
+            </li>
+            <li>
+              <button class="btn"
+                      ng-class="{
                       'state--selected': attributesVM.models.danceability === 'mid'
                     }"
-                    ng-click="attributesVM.updateAttribute('danceability', 'mid')">
-              <span class="text">Mid</span>
-            </button>
-          </li>
-          <li>
-            <button class="btn"
-                    ng-class="{
+                      ng-click="attributesVM.updateAttribute('danceability', 'mid')">
+                <span class="text">Mid</span>
+              </button>
+            </li>
+            <li>
+              <button class="btn"
+                      ng-class="{
                       'state--selected': attributesVM.models.danceability === 'high'
                     }"
-                    ng-click="attributesVM.updateAttribute('danceability', 'high')">
-              <span class="text">High</span>
-            </button>
-          </li>
-        </ul>
-      </div>
-    </li>
-    <li>
-      <div class="attribute"
-           ng-class="{
+                      ng-click="attributesVM.updateAttribute('danceability', 'high')">
+                <span class="text">High</span>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <div class="attribute"
+             ng-class="{
               'state--inactive': !attributesVM.models.valence
             }">
-        <label class="attribute__label">Mood</label>
-        <ul class="attribute__options">
-          <li>
-            <button class="btn"
-                    ng-class="{
+          <label class="attribute__label">Mood</label>
+          <ul class="attribute__options">
+            <li>
+              <button class="btn"
+                      ng-class="{
                       'state--selected': attributesVM.models.valence === 'low'
                     }"
-                    ng-click="attributesVM.updateAttribute('valence', 'low')">
+                      ng-click="attributesVM.updateAttribute('valence', 'low')">
               <span class="text">
                 <span class="icon icon-frown"></span>
               </span>
-            </button>
-          </li>
-          <li>
-            <button class="btn"
-                    ng-class="{
+              </button>
+            </li>
+            <li>
+              <button class="btn"
+                      ng-class="{
                       'state--selected': attributesVM.models.valence === 'mid'
                     }"
-                    ng-click="attributesVM.updateAttribute('valence', 'mid')">
+                      ng-click="attributesVM.updateAttribute('valence', 'mid')">
               <span class="text">
                 <span class="icon icon-meh"></span>
               </span>
-            </button>
-          </li>
-          <li>
-            <button class="btn"
-                    ng-class="{
+              </button>
+            </li>
+            <li>
+              <button class="btn"
+                      ng-class="{
                       'state--selected': attributesVM.models.valence === 'high'
                     }"
-                    ng-click="attributesVM.updateAttribute('valence', 'high')">
+                      ng-click="attributesVM.updateAttribute('valence', 'high')">
               <span class="text">
                 <span class="icon icon-smile"></span>
               </span>
-            </button>
-          </li>
-        </ul>
-      </div>
-    </li>
-  </ul>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
 </div>

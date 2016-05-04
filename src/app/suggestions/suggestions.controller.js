@@ -56,8 +56,8 @@
       vm.suggestions.splice(index, 1);
     }
 
-    function startDrag() {
-      DragService.startDrag('suggestion');
+    function startDrag(type) {
+      DragService.startDrag(type);
     }
 
     function stopDrag() {

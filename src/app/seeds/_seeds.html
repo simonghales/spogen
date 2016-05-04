@@ -1,24 +1,36 @@
-<div class="box box--less-padding seeds droppable-box dragging-fade dragging-fade--suggestion dragging-fade--tracks dragging-fade--seed"
-     ng-class="{
-        'state--empty': seedsVM.seeds.length === 0
-      }">
-  <div class="box__title-wrapper">
-    <h3 class="box__title">Seeds</h3>
-  </div>
-  <ul class="blocks blocks--more-padding droppable-list"
-      dnd-list="seedsVM.seeds"
-      dnd-allowed-types="['genre','track','playlisttrack','seed','artist']"
-      dnd-drop="seedsVM.onDrop(event, index, item, type)"
-    >
-    <li ng-repeat="seed in seedsVM.seeds">
-      <seed data="seed"></seed>
-    </li>
-  </ul>
-  <p class="small-message"
-    ng-show="seedsVM.seeds.length === 0">
-    drag and drop a seed here or search above for seeds
-  </p>
-  <div class="drop-message drop-message--seed">
-    <div class="text">Drop seeds here</div>
+<div class="box-wrapper dragging-fade dragging-fade--suggestion dragging-fade--tracks dragging-fade--seed dragging-fade--artist dragging-fade--track dragging-fade--genre">
+  <div class="box box--less-padding seeds droppable-box"
+       ng-class="{
+          'state--empty': seedsVM.seeds.length === 0
+        }">
+    <div class="drop-artist"
+         dnd-list="seedsVM.trackArtists"
+         dnd-allowed-types="['track']"
+         dnd-drop="seedsVM.trackToArtistDrop(event, index, item, type)">
+      <div class="content">
+        <span class="icon icon-brush"></span>
+        <span class="text">Add as artist seed</span>
+      </div>
+      <div class="dndPlaceholder"></div>
+    </div>
+    <div class="box__title-wrapper">
+      <h3 class="box__title">Seeds</h3>
+    </div>
+    <ul class="blocks blocks--more-padding droppable-list"
+        dnd-list="seedsVM.seeds"
+        dnd-allowed-types="['genre','track','playlisttrack','seed','artist']"
+        dnd-drop="seedsVM.onDrop(event, index, item, type)"
+      >
+      <li ng-repeat="seed in seedsVM.seeds">
+        <seed data="seed"></seed>
+      </li>
+    </ul>
+    <p class="small-message"
+      ng-show="seedsVM.seeds.length === 0">
+      drag and drop a seed here or search above for seeds
+    </p>
+    <div class="drop-message drop-message--seed">
+      <div class="text">Drop seeds here</div>
+    </div>
   </div>
 </div>

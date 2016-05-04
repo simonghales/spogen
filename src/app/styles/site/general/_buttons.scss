@@ -77,3 +77,19 @@
   }
 
 }
+
+.btn--submit {
+  @include border-radius(25px);
+  @include transition(transform 300ms ease);
+  background-color: #0094EF;
+  color: #ffffff;
+  font-size: 1.1em;
+  text-transform: uppercase;
+  font-weight: 500;
+  padding: 12px 24px;
+
+  &:active {
+    transform: translateY(2px);
+  }
+
+}
