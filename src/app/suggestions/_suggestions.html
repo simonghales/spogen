@@ -1,19 +1,50 @@
-<div class="box-wrapper full dragging-fade dragging-fade--suggestion">
+<div class="box-wrapper dragging-fade dragging-fade--suggestion">
   <div class="box full">
-    <h3 class="box__title">Suggestions</h3>
-    <ul class="suggestions">
-      <li ng-repeat="seed in suggestionsVM.data.suggestions | limitTo:7 track by seed.id">
-        <div class="block-wrapper draggable--seed"
-             dnd-draggable="seed.info"
+    <h3 class="box__title">Seed Suggestions</h3>
+    <div class="suggestion-box">
+      <div class="suggestion-box__control suggestion-box__control--prev"
+           ng-class="{
+            'state--disabled': !suggestionsVM.canGoPrevious()
+           }">
+        <div class="bok"
+             ng-click="suggestionsVM.previousSuggestion()">
+          <span class="icon icon-left-dir"></span>
+        </div>
+      </div>
+      <div class="suggestion-box__control suggestion-box__control--next"
+           ng-class="{
+            'state--disabled': !suggestionsVM.canGoNext()
+           }">
+        <div class="bok"
+             ng-click="suggestionsVM.nextSuggestion()">
+          <span class="icon icon-right-dir"></span>
+        </div>
+      </div>
+      <div class="suggestion-box__seed">
+        <div class="block-wrapper"
+             dnd-draggable="suggestionsVM.data.currentSuggestion.info"
              dnd-effect-allowed="move"
-             dnd-type="'{{seed.type}}'"
-             dnd-dragstart="suggestionsVM.startDrag(seed.type)"
+             dnd-type="'{{suggestionsVM.data.currentSuggestion.type}}'"
+             dnd-dragstart="suggestionsVM.startDrag(suggestionsVM.data.currentSuggestion.type)"
              dnd-dragend="suggestionsVM.stopDrag()"
              dnd-moved="suggestionsVM.seedMoved($index)"
           >
-          <suggestion data="seed"></suggestion>
+          <suggestion data="suggestionsVM.data.currentSuggestion"></suggestion>
         </div>
-      </li>
-    </ul>
+      </div>
+    </div>
+    <!--<ul class="suggestions">-->
+      <!--<li ng-repeat="seed in suggestionsVM.data.suggestions | limitTo:7 track by seed.id">-->
+        <!--<div class="block-wrapper draggable&#45;&#45;seed"-->
+             <!--dnd-draggable="seed.info"-->
+             <!--dnd-effect-allowed="move"-->
+             <!--dnd-type="'{{seed.type}}'"-->
+             <!--dnd-dragstart="suggestionsVM.startDrag(seed.type)"-->
+             <!--dnd-dragend="suggestionsVM.stopDrag()"-->
+             <!--dnd-moved="suggestionsVM.seedMoved($index)"-->
+          <!--<suggestion data="seed"></suggestion>-->
+        <!--</div>-->
+      <!--</li>-->
+    <!--</ul>-->
   </div>
 </div>

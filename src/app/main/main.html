@@ -3,28 +3,31 @@
          ng-class="{
           'state--dragging': states.dragging
          }">
-
-  <section class="workshop-top">
-    <section class="workshop-side">
-      <quick-search></quick-search>
-      <div class="workshop-side__halves">
-        <section class="workshop-filters">
-          <seeds></seeds>
-          <attributes></attributes>
-        </section>
-        <section class="workshop-results dragging-fade">
-          <recommended></recommended>
-        </section>
-      </div>
+  <div class="workshop">
+    <section class="workshop-top">
+      <section class="workshop-side">
+        <div class="workshop-side__inner">
+          <div class="workshop-side__halves">
+            <section class="workshop-filters">
+              <quick-search></quick-search>
+              <seeds></seeds>
+              <suggestions></suggestions>
+              <attributes></attributes>
+            </section>
+            <section class="workshop-results dragging-fade">
+              <recommended></recommended>
+            </section>
+          </div>
+        </div>
+      </section>
+      <section class="workshop-main">
+        <playlist></playlist>
+      </section>
     </section>
-    <section class="workshop-main">
-      <playlist></playlist>
-    </section>
-  </section>
-  <section class="workshop-bottom">
-    <suggestions></suggestions>
-  </section>
+    <!--<section class="workshop-bottom">-->
 
+    <!--</section>-->
+  </div>
   <div class="seeds-trash">
     <div class="seeds-trash__icon icon icon-trash"
          dnd-list="mainVM.deletedSeeds"

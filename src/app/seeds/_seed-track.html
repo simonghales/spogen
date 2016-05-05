@@ -10,7 +10,8 @@
     <span class="icon icon-music"></span>
   </div>
   <div class="block__info">
-    <div class="block__title">
+    <div class="block__title"
+         title="{{::seed.name}} — {{::seed.info.artists | artists}}">
       <span class="text--track"
         ng-bind="::seed.name"></span>
       <span class="subtitle">

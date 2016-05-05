@@ -53,26 +53,37 @@
 
       $log.debug("data to use", data);
 
+      // Adding to Objects to avoid duplicates...
+      var suggestionsArtists = {};
+      var suggestionsTracks = {};
       var suggestions = [];
 
       for (var i = 0, len = data.topArtists.long.items.length; i < len; i++) {
         var artist = data.topArtists.long.items[i];
-        suggestions.push(createSuggestionObject(artist, 'artist'));
+        suggestionsArtists[artist.id] = artist;
       }
 
       for (var i = 0, len = data.topArtists.short.items.length; i < len; i++) {
         var artist = data.topArtists.short.items[i];
-        suggestions.push(createSuggestionObject(artist, 'artist'));
+        suggestionsArtists[artist.id] = artist;
       }
 
       for (var i = 0, len = data.topTracks.long.items.length; i < len; i++) {
         var track = data.topTracks.long.items[i];
-        suggestions.push(createSuggestionObject(track, 'track'));
+        suggestionsTracks[track.id] = track;
       }
 
       for (var i = 0, len = data.topTracks.short.items.length; i < len; i++) {
         var track = data.topTracks.short.items[i];
-        suggestions.push(createSuggestionObject(track, 'track'));
+        suggestionsTracks[track.id] = track;
+      }
+
+      for (var key in suggestionsArtists) {
+        suggestions.push(createSuggestionObject(suggestionsArtists[key], 'artist'));
+      }
+
+      for (var key in suggestionsTracks) {
+        suggestions.push(createSuggestionObject(suggestionsTracks[key], 'track'));
       }
 
       // get 5 genres

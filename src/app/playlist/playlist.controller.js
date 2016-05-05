@@ -11,13 +11,23 @@
 
     vm.tracks = PlaylistService.tracks;
 
+    vm.models = {
+      title: ''
+    };
+
+    vm.isPlaylistValid = isPlaylistValid;
     vm.onDrop = onDrop;
+    vm.removeAll = removeAll;
     vm.removeTrack = removeTrack;
     vm.startDrag = startDrag;
     vm.stopDrag = stopDrag;
     vm.trackMoved = trackMoved;
 
     _activate();
+
+    function isPlaylistValid() {
+      return (vm.models.title && vm.tracks.length > 0);
+    }
 
     function onDrop(event, index, item, type) {
 
@@ -48,6 +58,10 @@
 
       return false;
 
+    }
+
+    function removeAll() {
+      PlaylistService.removeAll();
     }
 
     function removeTrack(track, index) {

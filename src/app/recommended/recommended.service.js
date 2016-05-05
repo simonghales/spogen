@@ -29,7 +29,7 @@
 
       var data = SpotifyService.getData();
 
-      var tracks = data.topTracks.long.items.slice(0, 8);
+      var tracks = data.topTracks.long.items.slice(0, 50);
 
       service.recommendations = {
         tracks: tracks
@@ -101,7 +101,7 @@
 
       params = prepAttributes(attributes, params);
 
-      params.limit = 8;
+      params.limit = 100;
 
       return params;
 

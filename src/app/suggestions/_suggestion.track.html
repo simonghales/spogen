@@ -3,13 +3,14 @@
     <span class="icon icon-music"></span>
   </div>
   <div class="block__info">
-    <div class="block__title">
+    <div class="block__title"
+         title="{{seed.name}} — {{seed.info.artists | artists}}">
       <span class="text--track"
-            ng-bind="::seed.name"></span>
+            ng-bind="seed.name"></span>
       <span class="subtitle">
         —
         <span
-          ng-bind="::seed.info.artists | artists"></span>
+          ng-bind="seed.info.artists | artists"></span>
       </span>
     </div>
     <div class="block__subtitle">track</div>

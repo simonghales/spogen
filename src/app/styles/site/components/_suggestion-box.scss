@@ -1,0 +1,82 @@
+.suggestion-box {
+  position: relative;
+  width: 100%;
+  height: 29px; // temporary
+  margin-top: 15px;
+}
+
+  .suggestion-box__control {
+    position: absolute;
+    top: 2px;
+    width: 24px;
+    height: 24px;
+
+    &.state--disabled {
+
+      .bok {
+        background-color: #fafafa;
+        border-color: #fafafa;
+        color: #dfdfdf;
+        cursor: default;
+
+        &:hover {
+          color: #dddddd;
+        }
+
+      }
+
+    }
+
+    .bok {
+      @include border-radius(50%);
+      width: 100%;
+      height: 100%;
+      position: relative;
+      background-color: #ffffff;
+      border: 1px solid #f4f4f4;
+      cursor: pointer;
+      text-align: center;
+      color: #cccccc;
+
+      &:hover {
+        color: #555555;
+      }
+
+      .icon {
+        position: absolute;
+        top: 3px;
+        left: 2px;
+
+        &::before {
+          margin: 0;
+        }
+
+      }
+
+    }
+
+  }
+
+  .suggestion-box__control--prev {
+    left: -5px;
+  }
+
+  .suggestion-box__control--next {
+    right: -5px;
+
+    .bok {
+
+      .icon {
+        left: 4px;
+      }
+
+    }
+
+  }
+
+  .suggestion-box__seed {
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+  }
+

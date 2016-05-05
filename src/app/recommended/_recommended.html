@@ -1,50 +1,56 @@
-<div class="flat-box">
-  <div class="flat-box__title-wrapper">
-    <h3 class="flat-box__title">Recommended Tracks</h3>
-    <span ng-show="recommendedVM.states.updating">
-      <span class="busy-icon icon icon-spin3 animate-spin"></span>
-    </span>
-  </div>
-  <div
-       ng-hide="!recommendedVM.recommendations || recommendedVM.recommendations.tracks.length === 0"
-       class="multi-dragger"
-       dnd-draggable="recommendedVM.recommendations.tracks"
-       dnd-effect-allowed="copy"
-       dnd-type="'multitracks'"
-       dnd-dragstart="recommendedVM.startDrag('multitracks')"
-       dnd-dragend="recommendedVM.stopDrag()">
-    <span class="icon icon-th-list"></span>
-    <span class="text">Drag to add
-      <span
-        ng-pluralize=""
-        count="recommendedVM.recommendations.tracks.length"
-        when="{'0': 'no tracks',
-                     'one': '1 track',
-                     'other': 'all {} tracks'}"></span>
-    </span>
-  </div>
-  <ul class="tracks">
-    <li ng-if="recommendedVM.recommendations && recommendedVM.recommendations.tracks.length === 0">
-      <p class="small-message">
-        No recommendations could be generated. Try fiddling with the attributes and / or seeds.
-      </p>
-    </li>
-    <li ng-repeat="track in recommendedVM.recommendations.tracks | limitTo:8 track by track.id">
-      <div class="track"
-           dnd-draggable="track"
-           dnd-effect-allowed="copy"
-           dnd-type="'track'"
-           dnd-dragstart="recommendedVM.startDrag()"
-           dnd-dragend="recommendedVM.stopDrag()">
-        <div class="track__thumb"
-             back-img="{{::track.album.images[0].url}}"></div>
-        <div class="track__info">
-          <div class="track__title"
-               ng-bind="::track.name"></div>
-          <div class="track__subtitle"
-               ng-bind="::track.artists | artists"></div>
-        </div>
+<div class="flat-box flat-box--recommended">
+  <div class="recommended">
+    <header class="recommended__header">
+      <div class="flat-box__title-wrapper">
+        <h3 class="flat-box__title">Recommended Tracks</h3>
+      <span ng-show="recommendedVM.states.updating">
+        <span class="busy-icon icon icon-spin3 animate-spin"></span>
+      </span>
       </div>
-    </li>
-  </ul>
+      <div
+        ng-hide="!recommendedVM.recommendations || recommendedVM.recommendations.tracks.length === 0"
+        class="multi-dragger"
+        dnd-draggable="recommendedVM.recommendations.tracks"
+        dnd-effect-allowed="copy"
+        dnd-type="'multitracks'"
+        dnd-dragstart="recommendedVM.startDrag('multitracks')"
+        dnd-dragend="recommendedVM.stopDrag()">
+        <span class="icon icon-th-list"></span>
+      <span class="text">Drag to add
+        <span
+          ng-pluralize=""
+          count="recommendedVM.recommendations.tracks.length"
+          when="{'0': 'no tracks',
+                       'one': '1 track',
+                       'other': 'all {} tracks'}"></span>
+      </span>
+      </div>
+    </header>
+    <div class="recommended__body">
+      <ul class="tracks">
+        <li ng-if="recommendedVM.recommendations && recommendedVM.recommendations.tracks.length === 0">
+          <p class="small-message">
+            No recommendations could be generated. Try fiddling with the attributes and / or seeds.
+          </p>
+        </li>
+        <li ng-repeat="track in recommendedVM.recommendations.tracks track by track.id"> <!--  | limitTo:8 -->
+          <div class="track"
+               dnd-draggable="track"
+               dnd-effect-allowed="copy"
+               dnd-type="'track'"
+               dnd-dragstart="recommendedVM.startDrag()"
+               dnd-dragend="recommendedVM.stopDrag()">
+            <div class="track__thumb"
+                 back-img="{{::track.album.images[0].url}}"></div>
+            <div class="track__info">
+              <div class="track__title"
+                   ng-bind="::track.name"></div>
+              <div class="track__subtitle"
+                   ng-bind="::track.artists | artists"></div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>

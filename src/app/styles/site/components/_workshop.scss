@@ -1,32 +1,48 @@
 
 $general-padding: 40px;
+$sidebar-width: 280px;
 
-.workshop-top {
-  @extend .clearfix;
+.workshop {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  bottom: 160px;
+  bottom: 0;
+}
+
+.workshop-top {
+  @extend .clearfix;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   padding: $general-padding;
   display: flex;
 }
 
   .workshop-side {
     @extend .clearfix;
-    flex: 0 0 540px;
+    flex: 0 0 650px;
     height: 100%;
     margin-right: $general-padding;
   }
 
+    .workshop-side__inner {
+      display: flex;
+      flex-flow: column;
+      height: 100%;
+    }
+
     .workshop-side__halves {
       display: flex;
       width: 100%;
-      margin-top: $general-padding;
+      //margin-top: $general-padding;
+      flex: 1;
     }
 
     .workshop-filters {
-      flex: 0 0 240px;
+      flex: 0 0 320px;
       height: 100%;
       margin-right: $general-padding;
       width: 240px;
@@ -44,6 +60,7 @@ $general-padding: 40px;
 
     .workshop-results {
       flex-grow: 1;
+      position: relative;
     }
 
   .workshop-main {
@@ -52,7 +69,7 @@ $general-padding: 40px;
   }
 
 .workshop-bottom {
-  position: fixed;
+  position: absolute;
   left: 0;
   bottom: 0;
   right: 0;

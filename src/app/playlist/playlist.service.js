@@ -15,6 +15,7 @@
       checkIfInTracks: checkIfInTracks,
       getTrackIndex: getTrackIndex,
       moveTrack: moveTrack,
+      removeAll: removeAll,
       removeTrack: removeTrack,
       tracks: []
     };
@@ -81,6 +82,10 @@
 
       addTrack(track, index);
 
+    }
+
+    function removeAll() {
+      service.tracks = [];
     }
 
     function removeTrack(track, index) {

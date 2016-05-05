@@ -37,7 +37,6 @@
       SpotifyService.loadUserData()
         .then(function() {
           $state.transitionTo('create');
-          vm.states.busy = false;
         }, function(error) {
           vm.states.busy = false;
           $log.warn("failed to load user data", error);

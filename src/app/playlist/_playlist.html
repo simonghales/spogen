@@ -1,19 +1,24 @@
-<div class="box-wrapper full dragging-fade dragging-fade--tracks dragging-fade--multitracks dragging-fade--seed-track">
-  <div class="playlist box full droppable-box">
+<div class="box-wrapper full dragging-fade dragging-fade--track dragging-fade--tracks dragging-fade--multitracks dragging-fade--seed-track">
+  <div class="playlist box full droppable-box"
+       ng-class="{
+        'state--empty': !playlistVM.tracks || playlistVM.tracks.length === 0
+       }">
     <header class="playlist__header">
       <div class="input-wrapper">
-        <input type="text" class="playlist__title input input--title" placeholder="enter a playlist title..."/>
+        <input type="text" class="playlist__title input input--title" placeholder="enter a playlist title..."
+               ng-model="playlistVM.models.title"/>
       </div>
       <h4 class="playlist__info">
-      <span
-        ng-pluralize=""
-        count="playlistVM.tracks.length"
-        when="{'0': 'no tracks',
-                     'one': '1 track',
-                     'other': '{} tracks'}"></span>
-        ,
-      <span
-        ng-bind="playlistVM.tracks | msToTimeTotal"></span>
+        <span
+          ng-pluralize=""
+          count="playlistVM.tracks.length"
+          when="{'0': 'no tracks',
+                       'one': '1 track',
+                       'other': '{} tracks'}"></span>,
+        <span
+          ng-bind="playlistVM.tracks | msToTimeTotal"></span>,
+        <span class="remove"
+              ng-click="playlistVM.removeAll()">remove all tracks</span>
       </h4>
     </header>
     <div class="playlist__flextable">
@@ -70,7 +75,8 @@
       </div>
     </div>
 
-    <div class="playlist__submit">
+    <div class="playlist__submit"
+         ng-show="playlistVM.isPlaylistValid()">
       <button class="btn btn--submit">Save Playlist</button>
     </div>
 

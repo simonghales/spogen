@@ -5,11 +5,12 @@
     position: relative;
 
     .icon {
-      color: #555555;
+      color: #555;
       position: absolute;
-      top: 19px;
-      left: 15px;
+      top: 16px;
+      left: 12px;
       pointer-events: none;
+      font-size: .9em;
     }
 
   }

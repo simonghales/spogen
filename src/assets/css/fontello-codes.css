@@ -15,3 +15,6 @@
 .icon-trash:before { content: '\2e'; } /* '.' */
 .icon-spin3:before { content: '\2f'; } /* '/' */
 .icon-th-list:before { content: '\30'; } /* '0' */
+.icon-left-dir:before { content: '\31'; } /* '1' */
+.icon-right-dir:before { content: '\32'; } /* '2' */
+.icon-list:before { content: '\33'; } /* '3' */
